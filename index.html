@@ -107,13 +107,14 @@ color:white;
 <div id="index" class="container">
 <h1>Sign In to access real time To Do app </h1>
 <h3>*Or Sign Up if you don't have an account*</h3>
-<label>Email</label>
-<input type="text" id="email" placeholder="Email..."  required>
-<label>Password</label>
+<label>Email</label><label id="emailReq"></label>
+<input type="text" id="email" placeholder="Email..." required>
+<label>Password</label><label id="passReq"></label>
 <input type="password" id="password" placeholder="Password..." required >
 <button class="btn btn-lg btn-primary btn-action" id="signin">Sign In</button>
 <button class="btn btn-lg btn-secondary btn-action" id="signup">Sign Up</button>
-<button class="btn btn-lg btn-secondary btn-action" id="google">Use Google Authentication</button>	
+<button class="btn btn-lg btn-secondary btn-action" id="google">Use Google Authentication</button>
+<label id="signinError"></label>	
 </div>
   
 <!-- This section is for Sign Up Form -->
