@@ -32,16 +32,29 @@ $("document").ready(function(){
 		 
 		 if(signin){
 		 signin.addEventListener('click', e=>{
-		     //location.reload();
+		    
 		     const user = email.value;
 			 const pass = password.value;
+			 
+			 //validating user credentials
+			 if(user==""){
+			 document.getElementById("emailReq").value = "*Please enter your email address";
+			 }
+			 else if(pass==""){
+			 document.getElementById("emailReq").value = "*Please enter your password";
+			 }
+			 else
+			 //
 			 const auth = firebase.auth();
 			 
 			 
 			 const promise = auth.signInWithEmailAndPassword(user, pass).then(function(){
 			  window.location.reload(true);
 			 });
-		      promise.catch(e => alert(e.message+"Please recheck your credentials OR Signup for a new account."));
+		      promise.catch(e => 
+	              //alert(e.message+" Please recheck your credentials OR OR Signup for a new account.")
+		       document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.";
+				   );
 			  
 			  //window.location.href="index.html";
 			  
