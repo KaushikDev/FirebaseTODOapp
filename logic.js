@@ -40,7 +40,7 @@ $("document").ready(function(){
 			 const promise = auth.signInWithEmailAndPassword(user, pass).then(function(){
 			  window.location.reload(true);
 			 });
-		      promise.catch(e => alert(e.message));
+		      promise.catch(e => alert(e.message+"Please recheck your credentials OR Signup for a new account."));
 			  
 			  //window.location.href="index.html";
 			  
