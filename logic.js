@@ -50,7 +50,7 @@ $("document").ready(function(){
 		 
 	         //trying the login with google inside this block
 	        if(signinG){
-		 signin.addEventListener('click', e=>{
+		 google.addEventListener('click', e=>{
 			 firebase.auth().signInWithPopup(provider).then(function(result) {
  			 // This gives you a Google Access Token. You can use it to access the Google API.
   			var token = result.credential.accessToken;
