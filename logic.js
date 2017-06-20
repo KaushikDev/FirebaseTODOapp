@@ -17,6 +17,7 @@ $("document").ready(function(){
 		 const email = document.getElementById("email");
 		 const password = document.getElementById("password");
 		 const signin = document.getElementById("signin");
+	         const signinG = document.getElementById("google");
 		 const signout = document.getElementById("signout");
 		 const signup = document.getElementById("signup");
 		 const getIndexDiv = document.getElementById("index");
@@ -27,7 +28,7 @@ $("document").ready(function(){
 		 const getRegisterDiv = document.getElementById("register");
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
-		 
+		 var provider = new firebase.auth.GoogleAuthProvider();
 		 
 		 if(signin){
 		 signin.addEventListener('click', e=>{
@@ -47,6 +48,32 @@ $("document").ready(function(){
 		 });
 		 }
 		 
+	         //trying the login with google inside this block
+	        if(signinG){
+		 signin.addEventListener('click', e=>{
+			 firebase.auth().signInWithPopup(provider).then(function(result) {
+ 			 // This gives you a Google Access Token. You can use it to access the Google API.
+  			var token = result.credential.accessToken;
+			  // The signed-in user info.
+			  var user = result.user;
+			  // ...
+			}).catch(function(error) {
+ 			 // Handle Errors here.
+ 			 var errorCode = error.code;
+			  var errorMessage = error.message;
+			  // The email of the user's account used.
+			  var email = error.email;
+ 			 // The firebase.auth.AuthCredential type that was used.
+  			var credential = error.credential;
+  			// ...
+			});
+		 });
+		
+		}
+	         //finished with google's signin code
+	             
+	
+	
 		 if(signup){
 		 
 		 signup.addEventListener('click', e=>{
