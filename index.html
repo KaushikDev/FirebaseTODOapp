@@ -77,6 +77,12 @@ font-size:25px;
 font-style:bold;
 color:white;
 }
+	
+#register p{
+font-size:25px;
+color:red;
+width:100%;
+}
 
 #main .scrolls{
 width: 100%;
@@ -133,12 +139,16 @@ color:white;
 <h3>Hello there, Thanks for creating new account . High Five !! </h3>
 <label>Your awesome Name</label>
 <input type="text" id="nameReg" placeholder="Full Name..."  required>
+<p id="regnameReq"></p>
 <label>Your Super Duper Authentic Email</label>
 <input type="text" id="emailReg" placeholder="Email..."  required>
+<p id="regemailReq"></p>
 <label>Your Chosen Password(more than 6 characters)</label>
 <input type="password" id="passwordReg" placeholder="Password..." required >
+<p id="regpassReq"></p>
 <button class="btn btn-lg btn-secondary btn-action" id="register">Register</button>
 <button class="btn btn-lg btn-secondary btn-action" id="cancel">Cancel</button>
+<p id="regsigninError"></p>
 </div>
   
 
