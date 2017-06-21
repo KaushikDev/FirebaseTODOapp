@@ -25,7 +25,7 @@ $("document").ready(function(){
 		 const registeredName = document.getElementById("nameReg");
 		 const registeredEmail = document.getElementById("emailReg");
 		 const registeredpassword = document.getElementById("passwordReg");
-		 const getRegisterDiv = document.getElementById("register");
+		 const getRegisterDiv = document.getElementById("registerDIV");
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
 		 var provider = new firebase.auth.GoogleAuthProvider();
