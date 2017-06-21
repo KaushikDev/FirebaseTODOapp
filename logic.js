@@ -181,9 +181,10 @@ $("document").ready(function(){
 
 			if(signout){
              signout.addEventListener('click', e=>{
-			 //$("li").remove();
-		     firebase.auth().signOut();
-			
+			if(confirm("Do you wish to leave?")){
+			firebase.auth().signOut();
+			}
+		       			       			
 		 });
 		  }
 		  
