@@ -1,0 +1,72 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+
+<style>
+body{
+background-color:black;
+}
+.hidden{
+display:none;
+}
+#registerDIV h1,h3{
+margin-top:100px;
+font-style:solid;
+color:white;
+}
+#registerDIV input {
+width:100%;
+height:30px;
+font-size:25px;
+border-radius:10px;
+}
+#registerDIV button{
+margin-top:100px;
+width:25%;
+}
+#registerDIV label{
+margin-top:20px;
+font-size:25px;
+font-style:bold;
+color:white;
+}
+	
+#registerDIV p{
+font-size:25px;
+color:red;
+font-style:italic;
+width:100%;
+}
+</style>
+
+<!-- This section is for Sign Up Form -->
+  
+<div id="registerDIV" class="container">
+
+<h3>Hello there, Thanks for creating new account . High Five !! </h3>
+<label>Your awesome Name</label>
+<input type="text" id="nameReg" placeholder="Full Name..."  required>
+<p id="regnameReq"></p>
+<label>Your Super Duper Authentic Email</label>
+<input type="text" id="emailReg" placeholder="Email..."  required>
+<p id="regemailReq"></p>
+<label>Your Chosen Password(more than 6 characters)</label>
+<input type="password" id="passwordReg" placeholder="Password..." required >
+<p id="regpassReq"></p>
+<button class="btn btn-lg btn-secondary btn-action" id="register">Register</button>
+<button class="btn btn-lg btn-secondary btn-action" id="cancel">Cancel</button>
+<p id="registerError"></p>
+</div>
+  
+<script src="logic.js"></script>
+</body>
+</html>
