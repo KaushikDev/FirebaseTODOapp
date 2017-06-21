@@ -122,7 +122,7 @@ $("document").ready(function(){
 			 const pass = registeredpassword.value;
 			 
 			 
-			 if(nameUser!="" && user!="" && pass!=""){
+			 if(nameUser!="" && user!="" && pass!="" && pass.length>=7){
 				 document.getElementById("regnameReq").innerHTML = "";
 				 document.getElementById("regemailReq").innerHTML = "";
 				 document.getElementById("regpassReq").innerHTML = "";
