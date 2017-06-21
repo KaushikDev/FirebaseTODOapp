@@ -114,15 +114,21 @@ $("document").ready(function(){
 		 
 		 
 		 
-          if(register){
+         if(register){
 		 register.addEventListener('click', e=>{
 		       
+			 const nameUser = registeredName.value;   
 		     const user = registeredEmail.value;
 			 const pass = registeredpassword.value;
+			 
+			 
+			 if(nameUser!="" && user!="" && pass!=""){
+				 document.getElementById("regnameReq").innerHTML = "";
+				 document.getElementById("regemailReq").innerHTML = "";
+				 document.getElementById("regpassReq").innerHTML = "";
+				 
+				 
 			 const auth = firebase.auth();
-			 
-			
-			 
 			 const promise = auth.createUserWithEmailAndPassword(user, pass).then(function(){
 			 window.location.reload(true);
 			 //updatig user name
@@ -140,10 +146,30 @@ $("document").ready(function(){
 			 
 			 
 			 });
-		      promise.catch(e => alert(e.message));
+		      promise.catch(e => 
+			  
+			  //alert(e.message)
+			  document.getElementById("registerError").innerHTML = e.message;
+			  
+			  );
+		 }
+		 else if(nameUser==""){
+			 document.getElementById("regnameReq").innerHTML = "*We would love to have your beautiful name";
+		 }
+		 
+		 else if(user==""){
+			 document.getElementById("regnameReq").innerHTML = "";
+			 document.getElementById("regemailReq").innerHTML = "*We would love to have your awesome email";
+		 }
+		 
+		 else if(pass==""){
+			 document.getElementById("regemailReq").innerHTML = "";
+			 document.getElementById("regpassReq").innerHTML = "*To make sure your content is safe, let's set a password ";
+		 }
+			  
+			  
 		 });
          }
-             
 			
 
 			if(signout){
