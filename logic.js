@@ -41,7 +41,7 @@ $("document").ready(function(){
 			document.getElementById("passReq").innerHTML =  ""; 
 			const auth = firebase.auth();
 			 const promise = auth.signInWithEmailAndPassword(user, pass).then(function(){
-			  window.location.reload(true);
+			  //window.location.reload(true);
 			 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
@@ -124,7 +124,7 @@ $("document").ready(function(){
 				 
 			 const auth = firebase.auth();
 			 const promise = auth.createUserWithEmailAndPassword(user, pass).then(function(){
-			 window.location.reload(true);
+			 //window.location.reload(true);
 			 //updatig user name
 			 var user = firebase.auth().currentUser;
 			 
