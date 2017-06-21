@@ -1,5 +1,3 @@
-
-
   // Initialize Firebase
   const config = {
     apiKey: "AIzaSyBZwn4c0KmEGXXFScg_c8aLTte1CRmTknY",
@@ -17,7 +15,7 @@ $("document").ready(function(){
 		 const email = document.getElementById("email");
 		 const password = document.getElementById("password");
 		 const signin = document.getElementById("signin");
-	         const signinG = document.getElementById("google");
+	     const signinG = document.getElementById("google");
 		 const signout = document.getElementById("signout");
 		 const signup = document.getElementById("signup");
 		 const getIndexDiv = document.getElementById("index");
@@ -89,12 +87,10 @@ $("document").ready(function(){
 		 if(signup){
 		 
 		 signup.addEventListener('click', e=>{
-		 getMainDiv.classList.add('hidden');
-		 getIndexDiv.classList.add('hidden');
-		 getRegisterDiv.classList.remove('hidden');
-		 registeredEmail.value='';
-		 registeredpassword.value='';
-		 registeredName.value='';
+		 window.location.href = "register.html";
+		 //registeredEmail.value='';
+		 //registeredpassword.value='';
+		 //registeredName.value='';
 		 });
 		 
 		 }
@@ -102,12 +98,10 @@ $("document").ready(function(){
 		  if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
-		 getMainDiv.classList.add('hidden');
-		 getIndexDiv.classList.remove('hidden');
-		 getRegisterDiv.classList.add('hidden');
-		 registeredEmail.value='';
-		 registeredpassword.value='';
-		 registeredName.value='';
+		 window.location.href = "index.html";
+		 //registeredEmail.value='';
+		 //registeredpassword.value='';
+		 //registeredName.value='';
 		 });
 		 
 		 }
@@ -194,9 +188,7 @@ $("document").ready(function(){
 			firebase.auth().onAuthStateChanged(firebaseUser =>{
 			if(firebaseUser){
 			console.log(firebaseUser);
-			getMainDiv.classList.remove('hidden');
-			getIndexDiv.classList.add('hidden');
-			getRegisterDiv.classList.add('hidden');
+			window.location.href = "main.html";
 			
 			
 			//avoidin manual refresh
@@ -322,4 +314,3 @@ $("document").ready(function(){
 			
 
 });
-
