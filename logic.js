@@ -39,9 +39,9 @@ $("document").ready(function(){
 			 
 			 //validating user credentials
 			 if(user!="" && pass!=""){
-				 const auth = firebase.auth();
-			 
-			 
+			document.getElementById("emailReq").innerHTML =  "";
+			document.getElementById("passReq").innerHTML =  ""; 
+			const auth = firebase.auth();
 			 const promise = auth.signInWithEmailAndPassword(user, pass).then(function(){
 			  window.location.reload(true);
 			 });
@@ -53,6 +53,7 @@ $("document").ready(function(){
 				document.getElementById("emailReq").innerHTML =  "Please enter your email";  
 			  }
 		 else if(pass==""){
+			 document.getElementById("emailReq").innerHTML =  "";
 			 document.getElementById("passReq").innerHTML =  "Please enter your password"; 
 		 }
 				
