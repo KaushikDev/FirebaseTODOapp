@@ -43,7 +43,7 @@ $("document").ready(function(){
 			 else if(pass==""){
 			 document.getElementById("emailReq").value = "*Please enter your password";
 			 }
-			 else
+			 else{
 			 //
 			 const auth = firebase.auth();
 			 
@@ -54,11 +54,10 @@ $("document").ready(function(){
 		      promise.catch(e => 
 	              //alert(e.message+" Please recheck your credentials OR OR Signup for a new account.")
 		       document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.";
-				   );
-			  
-			  //window.location.href="index.html";
-			  
+		   );
+		
 		 });
+		 }
 		 }
 		 
 	         //trying the login with google inside this block
