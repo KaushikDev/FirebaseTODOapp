@@ -172,6 +172,7 @@ $("document").ready(function(){
              signout.addEventListener('click', e=>{
 			if(confirm("Do you wish to leave?")){
 			firebase.auth().signOut();
+				window.location = "/FirebaseTODOapp/index.html";
 			}
 		       			       			
 		 });
