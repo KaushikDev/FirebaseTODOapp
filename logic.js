@@ -53,8 +53,7 @@ $("document").ready(function(){
 			 });
 		      promise.catch(e => 
 	              //alert(e.message+" Please recheck your credentials OR OR Signup for a new account.")
-		       document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.";
-		   );
+		       document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.");
 		
 		 });
 		 }
