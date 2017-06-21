@@ -46,7 +46,7 @@ $("document").ready(function(){
 			  window.location.reload(true);
 			 });
 		      promise.catch(e => 
-	          document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.")
+	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
 		 }
 			  else if(user==""){
 				  
