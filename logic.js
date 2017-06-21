@@ -58,8 +58,8 @@ $("document").ready(function(){
 				   });
 			}
 		 
-	         //trying the login with google inside this block
-	        if(signinG){
+	//trying the login with google inside this block
+	if(signinG){
 		 google.addEventListener('click', e=>{
 			 firebase.auth().signInWithPopup(provider).then(function(result) {
  			 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -80,11 +80,9 @@ $("document").ready(function(){
 		 });
 		
 		}
-	         //finished with google's signin code
+	//finished with google's signin code
 	             
-	
-	
-		 if(signup){
+	if(signup){
 		 
 		 signup.addEventListener('click', e=>{
 		 window.location = "/FirebaseTODOapp/register.html";
@@ -95,7 +93,7 @@ $("document").ready(function(){
 		 
 		 }
 		 
-		  if(cancel){
+	if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
 		 window.location = "/FirebaseTODOapp/index.html";
@@ -106,9 +104,7 @@ $("document").ready(function(){
 		 
 		 }
 		 
-		 
-		 
-        if(register){
+    if(register){
 		 register.addEventListener('click', e=>{
 		       
 			 const nameUser = registeredName.value;   
@@ -172,8 +168,7 @@ $("document").ready(function(){
 		 });
          }
 			
-
-			if(signout){
+	if(signout){
              signout.addEventListener('click', e=>{
 			if(confirm("Do you wish to leave?")){
 			firebase.auth().signOut();
@@ -182,24 +177,12 @@ $("document").ready(function(){
 		 });
 		  }
 		  
-	  
-		  
-		 
-			firebase.auth().onAuthStateChanged(firebaseUser =>{
+	firebase.auth().onAuthStateChanged(firebaseUser =>{
 			if(firebaseUser){
 			console.log(firebaseUser);
 			window.location = "/FirebaseTODOapp/main.html";
 			
-			
-			//avoidin manual refresh
-			//window.location.href="index.html";
-			//
-		    //******Retrieveing, adding, deleting tasks
-			
-			
 			$(document).ready(function(){	
-			//location.reload();
-			//$( ".scrolls" ).empty();
 			
 			//get the current user's info here//
 			const auth = firebase.auth();
@@ -302,7 +285,7 @@ $("document").ready(function(){
 			else
 			{
 			console.log(firebaseUser+" is not logged in");
-			window.location = "/FirebaseTODOapp/index.html";
+			//window.location = "/FirebaseTODOapp/index.html";
 			
 			
 			document.getElementById("password").value = '';
