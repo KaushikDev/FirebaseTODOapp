@@ -149,7 +149,7 @@ $("document").ready(function(){
 		      promise.catch(e => 
 			  
 			  //alert(e.message)
-			  document.getElementById("registerError").innerHTML = e.message;
+			  document.getElementById("registerError").innerHTML = e.message
 			  
 			  );
 		 }
