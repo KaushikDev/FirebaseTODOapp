@@ -48,8 +48,14 @@ $("document").ready(function(){
 		      promise.catch(e => 
 	          document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.")
 		 }
-			  else
-				document.getElementById("signinError").innerHTML =  "Please fill in the required field/s";
+			  else if(user==""){
+				  
+				document.getElementById("emailReq").innerHTML =  "Please enter your email";  
+			  }
+		 else if(pass==""){
+			 document.getElementById("passReq").innerHTML =  "Please enter your password"; 
+		 }
+				
 				   });
 			}
 		 
