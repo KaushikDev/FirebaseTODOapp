@@ -180,7 +180,7 @@ $("document").ready(function(){
 	firebase.auth().onAuthStateChanged(firebaseUser =>{
 			if(firebaseUser){
 			console.log(firebaseUser);
-			window.location = "/FirebaseTODOapp/main.html";
+			window.location = "/main.html";
 			
 			$(document).ready(function(){	
 			
