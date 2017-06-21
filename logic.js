@@ -29,8 +29,9 @@ $("document").ready(function(){
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
 		 var provider = new firebase.auth.GoogleAuthProvider();
-		 
-		 if(signin){
+		
+	
+	if(signin){
 		 signin.addEventListener('click', e=>{
 		    
 		     const user = email.value;
@@ -53,11 +54,11 @@ $("document").ready(function(){
 			 });
 		      promise.catch(e => 
 	              //alert(e.message+" Please recheck your credentials OR OR Signup for a new account.")
-		       document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.");
-		
-		 });
-		 }
-		 }
+		       document.getElementById("signinError").value = "Please recheck your credentials OR login using google OR signup for the application.")
+			 }
+			   });
+		 
+		}
 		 
 	         //trying the login with google inside this block
 	        if(signinG){
