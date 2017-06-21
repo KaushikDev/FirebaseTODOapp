@@ -302,9 +302,7 @@ $("document").ready(function(){
 			else
 			{
 			console.log(firebaseUser+" is not logged in");
-			getMainDiv.classList.add('hidden');
-			getIndexDiv.classList.remove('hidden');
-			getRegisterDiv.classList.add('hidden');
+			window.location.href = "index.html";
 			
 			
 			document.getElementById("password").value = '';
