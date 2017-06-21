@@ -288,7 +288,7 @@ $("document").ready(function(){
 			//window.location = "/FirebaseTODOapp/index.html";
 			
 			
-			document.getElementById("password").value = '';
+			//document.getElementById("password").value = '';
 		    }
 		
 		});
