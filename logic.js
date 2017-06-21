@@ -114,7 +114,7 @@ $("document").ready(function(){
 		 
 		 
 		 
-         if(register){
+        if(register){
 		 register.addEventListener('click', e=>{
 		       
 			 const nameUser = registeredName.value;   
@@ -166,6 +166,13 @@ $("document").ready(function(){
 			 document.getElementById("regemailReq").innerHTML = "";
 			 document.getElementById("regpassReq").innerHTML = "*To make sure your content is safe, let's set a password ";
 		 }
+		 
+		 else if(pass.length<7){
+			 document.getElementById("regemailReq").innerHTML = "";
+			 document.getElementById("regpassReq").innerHTML = "*Champions have strong passwords. Make sure yours is more than 6 characters!!";
+			 
+		 }
+		 
 			  
 			  
 		 });
