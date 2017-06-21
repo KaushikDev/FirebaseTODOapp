@@ -87,7 +87,7 @@ $("document").ready(function(){
 		 if(signup){
 		 
 		 signup.addEventListener('click', e=>{
-		 window.location = "register.html";
+		 window.location = "/register.html";
 		 //registeredEmail.value='';
 		 //registeredpassword.value='';
 		 //registeredName.value='';
@@ -98,7 +98,7 @@ $("document").ready(function(){
 		  if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
-		 window.location = "index.html";
+		 window.location = "/index.html";
 		 //registeredEmail.value='';
 		 //registeredpassword.value='';
 		 //registeredName.value='';
@@ -188,7 +188,7 @@ $("document").ready(function(){
 			firebase.auth().onAuthStateChanged(firebaseUser =>{
 			if(firebaseUser){
 			console.log(firebaseUser);
-			window.location = "main.html";
+			window.location = "/main.html";
 			
 			
 			//avoidin manual refresh
@@ -302,7 +302,7 @@ $("document").ready(function(){
 			else
 			{
 			console.log(firebaseUser+" is not logged in");
-			window.location.href = "index.html";
+			window.location.href = "/index.html";
 			
 			
 			document.getElementById("password").value = '';
