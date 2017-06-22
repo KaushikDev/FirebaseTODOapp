@@ -287,7 +287,6 @@ $("document").ready(function(){
 			{
 			console.log(firebaseUser+" is not logged in");
 			//window.location = "/FirebaseTODOapp/index.html";
-			window.location = "/FirebaseTODOapp/index.html";
 			//document.getElementById("password").value = '';
 		    }
 		
