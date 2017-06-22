@@ -179,34 +179,24 @@ $("document").ready(function(){
 		  }
 		  
 	firebase.auth().onAuthStateChanged(firebaseUser =>{
-		window.location = "/FirebaseTODOapp/main.html";
-		if(firebaseUser){
+			
+			window.location = "/FirebaseTODOapp/main.html";
+			if(firebaseUser){
 			console.log(firebaseUser);
-			//window.location = "/FirebaseTODOapp/main.html";
-			
-			$(document).ready(function(){	
-			
 			//get the current user's info here//
 			const auth = firebase.auth();
-			
-			var user = firebase.auth().currentUser;
-			var name, uid, email;
+			var user  = firebase.auth().currentUser;
+			var name  = firebaseUser.displayName;
+			var uid   = firebaseUser.uid;
+			var email = firebaseUser.email ;
+			var photoUrl = firebaseUser.photoUrl ;
 
-            //getting authenticated user's id(you can use current user's id as well)
-            if (firebaseUser != null) {
-            uid = firebaseUser.uid; 
-			name = firebaseUser.displayName;
-			email = firebaseUser.email;
-             }
-			//==========================
-			
-			//Display User's Name on Screen
-			document.getElementById("welcome").innerHTML = "Hi "+name+ ", Welcome!";
+         	document.getElementById("welcome").innerHTML = "Hi "+name+ ", Welcome!";
 			   
 			
-          var arrayDelete=[];
-		  var i=1;
-		  var firebaseretrieveRef2 = firebase.database().ref().child(name+uid+"/Tasks");
+				var arrayDelete=[];
+				var i=1;
+				var firebaseretrieveRef2 = firebase.database().ref().child(name+uid+"/Tasks");
 				
 				
 				firebaseretrieveRef2.on("child_added", snap =>{
@@ -234,7 +224,6 @@ $("document").ready(function(){
 			  }
 			});
 //=====================================================
-
 //+++++++++++Changing colors on strike and unstrike++++++++++++++
 		$(document).on("click", ".tdCheckboxes", function(){
 			 if(this.checked){
@@ -247,9 +236,7 @@ $("document").ready(function(){
 			   $(this).parent().css("color", "red");
 			}
 		});
-
 //=====================================================
-
 //+++++++++++Clearing/deleting all tasks++++++++++++++++++++++++
 		$("#clear").on("click", function(){
 			  var firebaseDeleteAllRef  = firebase.database().ref().child(name+uid+"/Tasks");
@@ -257,8 +244,6 @@ $("document").ready(function(){
 			  $( ".scrolls" ).empty();
 			  });
 //=====================================================
-
-  
 //+++++++++++Clearing/deleting selected tasks++++++++++++++++++++++++
 	  $("#clearSelected").on("click", function(){
         var firebaseDeleteRef = firebase.database().ref().child(name+uid+"/Tasks");
@@ -282,7 +267,6 @@ $("document").ready(function(){
 		 $("strike").remove();
 		 });
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 	 
-	 });
 			//******SERIOUSLY
 			}
 			else
