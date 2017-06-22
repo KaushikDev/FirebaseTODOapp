@@ -181,15 +181,16 @@ $("document").ready(function(){
 	firebase.auth().onAuthStateChanged(firebaseUser =>{
 			
 			window.location = "/FirebaseTODOapp/main.html";
-			if(firebaseUser){
-			console.log(firebaseUser);
+		       var user  = firebase.auth().currentUser;
+			if(user){
+			console.log("Current user is : "+user);
 			//get the current user's info here//
-			const auth = firebase.auth();
-			var user  = firebase.auth().currentUser;
-			var name  = firebaseUser.displayName;
-			var uid   = firebaseUser.uid;
-			var email = firebaseUser.email ;
-			var photoUrl = firebaseUser.photoUrl ;
+			//const auth = firebase.auth();
+			
+			var name  = user.displayName;
+			var uid   = user.uid;
+			var email = user.email ;
+			var photoUrl = user.photoUrl ;
 
          	document.getElementById("welcome").innerHTML = "Hi "+name+ ", Welcome!";
 			   
@@ -271,7 +272,7 @@ $("document").ready(function(){
 			}
 			else
 			{
-			console.log(firebaseUser+" is not logged in");
+			console.log(user+" is not logged in");
 			//window.location = "/FirebaseTODOapp/index.html";
 			//document.getElementById("password").value = '';
 		    }
