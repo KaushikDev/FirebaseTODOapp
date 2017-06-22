@@ -179,7 +179,8 @@ $("document").ready(function(){
 		  }
 		  
 	firebase.auth().onAuthStateChanged(firebaseUser =>{
-			if(firebaseUser){
+		window.location = "/FirebaseTODOapp/main.html";
+		if(firebaseUser){
 			console.log(firebaseUser);
 			//window.location = "/FirebaseTODOapp/main.html";
 			
@@ -187,7 +188,7 @@ $("document").ready(function(){
 			
 			//get the current user's info here//
 			const auth = firebase.auth();
-			window.location = "/FirebaseTODOapp/main.html";
+			
 			var user = firebase.auth().currentUser;
 			var name, uid, email;
 
