@@ -33,7 +33,7 @@ $("document").ready(function(){
 		 const loginPage = "/FirebaseTODOapp/index.html";
 		 const registerPage = "/FirebaseTODOapp/register.html"; 
 	         const appPage = "/FirebaseTODOapp/main.html";
-	 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
 	if(signin){
 		 signin.addEventListener('click', e=>{
 		    
@@ -44,13 +44,9 @@ $("document").ready(function(){
 			 if(userMail!="" && passCode!=""){
 			document.getElementById("emailReq").innerHTML =  "";
 			document.getElementById("passReq").innerHTML =  ""; 
-			//const auth = firebase.auth();
-			 promise = auth.signInWithEmailAndPassword(userMail, passCode).then(function(){
-			  //Make sure to remove below window.location if it doesn't work or should be a part of onAuthStateChanged function.
-				 //window.location = "/FirebaseTODOapp/main.html";
-				window.location = appPage;
-				// currentUser  = firebase.auth().currentUser;
-			 });
+			promise = auth.signInWithEmailAndPassword(userMail, passCode).then(function(){
+			 
+					 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
 		 }
@@ -66,20 +62,16 @@ $("document").ready(function(){
 				   });
 			}
 		 
-	//trying the login with google inside this block
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		
 	if(signinG){
 		 google.addEventListener('click', e=>{
-			// firebase.auth().signInWithPopup(provider).then(function(result) {
+			
 			 auth.signInWithPopup(provider).then(function(result) {	 
-				// currentUser  = firebase.auth().currentUser;
-				// window.location = "https://kaushikdev.github.io/main.html";
- 			// window.location = "/FirebaseTODOapp/main.html";
-				 // This gives you a Google Access Token. You can use it to access the Google API.
+			// This gives you a Google Access Token. You can use it to access the Google API.
   			var tokenGoogle = result.credential.accessToken;
 			  // The signed-in user info.
 			  var userGoogle = result.user;
 			  // ...
-			
 			}).catch(function(error) {
  			 // Handle Errors here.
  			 var errorCode = error.code;
@@ -93,24 +85,21 @@ $("document").ready(function(){
 		 });
 		
 		}
-	//finished with google's signin code
-	             
+	
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		             
 	if(signup){
-		 
 		 signup.addEventListener('click', e=>{
 		 window.location = registerPage;
 		 });
-		 
-		 }
-		 
+	 }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
 		 window.location = loginPage;
 		  });
-		 
-		 }
-		 
+	 }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
     if(register){
 		 register.addEventListener('click', e=>{
 		       
@@ -123,14 +112,8 @@ $("document").ready(function(){
 				 document.getElementById("regnameReq").innerHTML = "";
 				 document.getElementById("regemailReq").innerHTML = "";
 				 document.getElementById("regpassReq").innerHTML = "";
-				 
-				 
-			// const auth = firebase.auth();
 			 promise = auth.createUserWithEmailAndPassword(user, pass).then(function(){
-			 //window.location.reload(true);
-			 //updatig user name
 			 var user = firebase.auth().currentUser;
-			 
 			 user.updateProfile({
 				displayName: registeredName.value,
 				photoURL: "https://putyourlinkhere.com.jpeg"
@@ -139,16 +122,10 @@ $("document").ready(function(){
 				}, function(error) {
 				console.log("An error happened.");
 				});
-			 
-			 
-			 
 			 });
 		      promise.catch(e => 
-			  
-			  //alert(e.message)
 			  document.getElementById("registerError").innerHTML = e.message
-			  
-			  );
+			   );
 		 }
 		 else if(nameUser==""){
 			 document.getElementById("regnameReq").innerHTML = "*We would love to have your beautiful name";
@@ -169,12 +146,10 @@ $("document").ready(function(){
 			 document.getElementById("regpassReq").innerHTML = "*Champions have strong passwords. Make sure yours is more than 6 characters!!";
 			 
 		 }
-		 
-			  
-			  
+		   
 		 });
          }
-			
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++				
 	if(signout){
              signout.addEventListener('click', e=>{
 			if(confirm("Do you wish to leave?")){
@@ -184,12 +159,12 @@ $("document").ready(function(){
 		       			       			
 		 });
 		  }
-		  
-	//firebase.auth().onAuthStateChanged(function(currentUser){
-	auth.onAuthStateChanged(function(currentUser){	      //	
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
+	
+	auth.onAuthStateChanged(function(currentUser){
 		    			
 			if(currentUser){
-			//window.location = "/FirebaseTODOapp/main.html";
+			window.location = appPage;
 			var userCurrent  = firebase.auth().currentUser;
 			var name  = userCurrent.displayName;
 			var uid   = userCurrent.uid;
@@ -207,7 +182,6 @@ $("document").ready(function(){
 				var arrayDelete=[];
 				var i=1;
 				var firebaseretrieveRef2 = firebase.database().ref().child(name+uid+"/Tasks");
-				
 				
 				firebaseretrieveRef2.on("child_added", snap =>{
 				  var retrievedTask = snap.val();
@@ -287,6 +261,5 @@ $("document").ready(function(){
 		    }
 		
 		});
-			
-
+	
 });
