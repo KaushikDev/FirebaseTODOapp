@@ -186,10 +186,10 @@ $("document").ready(function(){
 			
 			if(currentUser){
 			window.location = "/FirebaseTODOapp/main.html";
-			var name  = user.displayName;
-			var uid   = user.uid;
-			var email = user.email ;
-			var photoUrl = user.photoUrl ;
+			var name  = currentUser.displayName;
+			var uid   = currentUser.uid;
+			var email = currentUser.email ;
+			var photoUrl = currentUser.photoUrl ;
 			
 			console.log("Current user is : "+uid);
 			console.log("Current user's name is : "+name);
