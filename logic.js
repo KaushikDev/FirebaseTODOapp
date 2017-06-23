@@ -168,8 +168,8 @@ $("document").ready(function(){
 	
 	firebase.auth().onAuthStateChanged(function(user){
 		    	
-		        const auth = firebase.auth();
-		        var user  = auth.currentUser;
+		      //  const auth = firebase.auth();
+		      //  var user  = auth.currentUser;
 		
 			if(user){
 			window.location = appPage;
