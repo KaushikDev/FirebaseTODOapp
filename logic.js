@@ -184,7 +184,7 @@ $("document").ready(function(){
 		    var user  = firebase.auth().currentUser;
 		
 			if(user){
-			window.location = "/main.html";
+			window.location = "main.html";
 			const auth = firebase.auth();
 			var name  = user.displayName;
 			var uid   = user.uid;
