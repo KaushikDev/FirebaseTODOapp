@@ -26,7 +26,7 @@ $("document").ready(function(){
 		 const getRegisterDiv = document.getElementById("registerDIV");
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
-		 const auth = firebase.auth();
+		
 		 var provider = new firebase.auth.GoogleAuthProvider();
 		 var currentUser;
 		 var promise;
@@ -44,6 +44,7 @@ $("document").ready(function(){
 			 if(userMail!="" && passCode!=""){
 			document.getElementById("emailReq").innerHTML =  "";
 			document.getElementById("passReq").innerHTML =  ""; 
+		        const auth = firebase.auth();
 			promise = auth.signInWithEmailAndPassword(userMail, passCode).then(function(){
 			 
 					 });
@@ -65,7 +66,7 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		
 	if(signinG){
 		 google.addEventListener('click', e=>{
-			
+			 const auth = firebase.auth();
 			 auth.signInWithPopup(provider).then(function(result) {	 
 			// This gives you a Google Access Token. You can use it to access the Google API.
   			var tokenGoogle = result.credential.accessToken;
@@ -152,6 +153,7 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++				
 		if(signout){
              signout.addEventListener('click', e=>{
+		     const auth = firebase.auth();
 			 promise = auth.signOut().then(function(){
 				if(confirm("Do you wish to leave?")){
 				 window.location = loginPage;
@@ -163,12 +165,12 @@ $("document").ready(function(){
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
-	auth.onAuthStateChanged(function(currentUser){
+	auth.onAuthStateChanged(function(userCurrent){
 		    	window.location = appPage;	
 			
-		
-		        if(currentUser){
-			var userCurrent  = firebase.auth().currentUser;
+		        var userCurrent  = firebase.auth().currentUser;
+		        if(userCurrent){
+			
 			var name  = userCurrent.displayName;
 			var uid   = userCurrent.uid;
 			var email = userCurrent.email ;
@@ -258,7 +260,7 @@ $("document").ready(function(){
 			}
 			else
 			{
-			console.log(currentUser+" is not logged in");
+			console.log(userCurrent+" is not logged in");
 			//window.location = "/FirebaseTODOapp/index.html";
 			//document.getElementById("password").value = '';
 		    }
