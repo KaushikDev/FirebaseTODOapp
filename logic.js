@@ -1,7 +1,7 @@
   // Initialize Firebase
   const config = {
     apiKey: "AIzaSyBZwn4c0KmEGXXFScg_c8aLTte1CRmTknY",
-    authDomain: "todo-app-612b7.firebaseapp.com",
+    authDomain: "kaushikdev.github.io",
     databaseURL: "https://todo-app-612b7.firebaseio.com",
     storageBucket: "todo-app-612b7.appspot.com",
     messagingSenderId: "439347897690"
@@ -184,8 +184,8 @@ $("document").ready(function(){
 		    var user  = firebase.auth().currentUser;
 		
 			if(user){
-			window.location = "main.html";
-			const auth = firebase.auth();
+			window.location = "/FirebaseTODOapp/main.html";
+			//const auth = firebase.auth();
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
