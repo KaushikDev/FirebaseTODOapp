@@ -170,9 +170,9 @@ $("document").ready(function(){
 		    	
 		      //  const auth = firebase.auth();
 		      //  var user  = auth.currentUser;
-		
-			if(user){
-			window.location = appPage;
+		window.location = appPage;
+			
+		       if(user){
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
