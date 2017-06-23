@@ -165,7 +165,7 @@ $("document").ready(function(){
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
-	auth.onAuthStateChanged(function(userCurrent){
+	firebase.auth().onAuthStateChanged(function(userCurrent){
 		    	window.location = appPage;	
 			const auth = firebase.auth();
 		        var userCurrent  = auth.currentUser;
