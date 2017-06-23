@@ -41,7 +41,8 @@ $("document").ready(function(){
 			document.getElementById("passReq").innerHTML =  ""; 
 			const auth = firebase.auth();
 			 const promise = auth.signInWithEmailAndPassword(user, pass).then(function(){
-			  
+			  //Make sure to remove below window.location if it doesn't work or should be a part of onAuthStateChanged function.
+				 window.location = "/FirebaseTODOapp/main.html";
 			 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
@@ -179,11 +180,11 @@ $("document").ready(function(){
 		  }
 		  
 	firebase.auth().onAuthStateChanged(firebaseUser =>{
-		      	window.location = "/FirebaseTODOapp/main.html";
+		      //	window.location = "/FirebaseTODOapp/main.html";
 		    	var user  = firebase.auth().currentUser;
 		
 			if(user){
-			const auth = firebase.auth();
+			//const auth = firebase.auth();
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
