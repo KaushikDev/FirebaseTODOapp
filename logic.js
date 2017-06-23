@@ -161,7 +161,7 @@ $("document").ready(function(){
 					 });
 		      promise.catch(e => 
 	                console.log(e.message)
-		 }	
+		 )}	
 		//		
 				
 			}
