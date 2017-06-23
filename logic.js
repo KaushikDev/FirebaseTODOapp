@@ -27,7 +27,7 @@ $("document").ready(function(){
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
 		
-		 var provider = new firebase.auth.GoogleAuthProvider();
+		 
 		 var currentUser;
 		 var promise;
 		 const loginPage = "/FirebaseTODOapp/index.html";
@@ -66,6 +66,7 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		
 	if(signinG){
 		 google.addEventListener('click', e=>{
+			 var provider = new firebase.auth.GoogleAuthProvider();
 			 const auth = firebase.auth();
 			 auth.signInWithPopup(provider).then(function(result) {	 
 			// This gives you a Google Access Token. You can use it to access the Google API.
@@ -165,16 +166,15 @@ $("document").ready(function(){
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
-	firebase.auth().onAuthStateChanged(function(userCurrent){
+	firebase.auth().onAuthStateChanged(function(user){
 		    	window.location = appPage;	
+			if(user){
 			const auth = firebase.auth();
-		        var userCurrent  = auth.currentUser;
-		       
-		if(userCurrent){
-			var name  = userCurrent.displayName;
-			var uid   = userCurrent.uid;
-			var email = userCurrent.email ;
-			var photoUrl = userCurrent.photoUrl ;
+		        var currentUSER  = auth.currentUser;
+			var name  = currentUSER.displayName;
+			var uid   = currentUSER.uid;
+			var email = currentUSER.email ;
+			var photoUrl = currentUSER.photoUrl ;
 			
 			console.log("Current user is : "+uid);
 			console.log("Current user's name is : "+name);
@@ -256,10 +256,8 @@ $("document").ready(function(){
 			}
 			else
 			{
-			console.log(userCurrent+" is not logged in");
-			//window.location = "/FirebaseTODOapp/index.html";
-			//document.getElementById("password").value = '';
-		    }
+			console.log(user+" is not logged in");
+			}
 		
 		});
 	
