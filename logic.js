@@ -29,7 +29,7 @@ $("document").ready(function(){
 		 const auth = firebase.auth();
 		 var provider = new firebase.auth.GoogleAuthProvider();
 		 var currentUser;
-		 const promise;
+		 var promise;
 		 const loginPage = "/FirebaseTODOapp/index.html";
 		 const registerPage = "/FirebaseTODOapp/register.html"; 
 	         const appPage = "/FirebaseTODOapp/main.html";
