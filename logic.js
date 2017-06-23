@@ -187,7 +187,7 @@ $("document").ready(function(){
 		    	//var currentUser  = firebase.auth().currentUser;
 			
 			if(currentUser){
-			
+			window.location = "/FirebaseTODOapp/main.html";
 			var userCurrent  = firebase.auth().currentUser;
 			var name  = userCurrent.displayName;
 			var uid   = userCurrent.uid;
