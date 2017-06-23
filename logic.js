@@ -180,9 +180,9 @@ $("document").ready(function(){
 		 });
 		  }
 		  
-	firebase.auth().onAuthStateChanged(function(){
+	firebase.auth().onAuthStateChanged(function(currentUser){
 		      //	
-		    	var currentUser  = firebase.auth().currentUser;
+		    	//var currentUser  = firebase.auth().currentUser;
 			
 			if(currentUser){
 			window.location = "/FirebaseTODOapp/main.html";
