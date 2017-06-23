@@ -64,6 +64,7 @@ $("document").ready(function(){
 	if(signinG){
 		 google.addEventListener('click', e=>{
 			 firebase.auth().signInWithPopup(provider).then(function(result) {
+				 window.location = "/main.html";
  			// window.location = "/FirebaseTODOapp/main.html";
 				 // This gives you a Google Access Token. You can use it to access the Google API.
   			var token = result.credential.accessToken;
@@ -187,7 +188,7 @@ $("document").ready(function(){
 		    	//var currentUser  = firebase.auth().currentUser;
 			
 			if(currentUser){
-			window.location = "/FirebaseTODOapp/main.html";
+			//window.location = "/FirebaseTODOapp/main.html";
 			var userCurrent  = firebase.auth().currentUser;
 			var name  = userCurrent.displayName;
 			var uid   = userCurrent.uid;
