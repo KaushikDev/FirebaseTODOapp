@@ -1,7 +1,7 @@
   // Initialize Firebase
   const config = {
     apiKey: "AIzaSyBZwn4c0KmEGXXFScg_c8aLTte1CRmTknY",
-    authDomain: "kaushikdev.github.io",
+    authDomain: "todo-app-612b7.firebaseapp.com",
     databaseURL: "https://todo-app-612b7.firebaseio.com",
     storageBucket: "todo-app-612b7.appspot.com",
     messagingSenderId: "439347897690"
@@ -66,7 +66,7 @@ $("document").ready(function(){
 	if(signinG){
 		 google.addEventListener('click', e=>{
 			
-			 firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
+			 firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
 			// This gives you a Google Access Token. You can use it to access the Google API.
   			var tokenGoogle = result.credential.accessToken;
 			  // The signed-in user info.
