@@ -179,13 +179,11 @@ $("document").ready(function(){
 		  }
 		  
 	firebase.auth().onAuthStateChanged(firebaseUser =>{
-			
-			
-		    var user  = firebase.auth().currentUser;
+		      	window.location = "/FirebaseTODOapp/main.html";
+		    	var user  = firebase.auth().currentUser;
 		
 			if(user){
-			window.location = "/FirebaseTODOapp/main.html";
-			//const auth = firebase.auth();
+			const auth = firebase.auth();
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
