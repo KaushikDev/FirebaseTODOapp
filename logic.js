@@ -103,7 +103,7 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
     if(register){
 		 register.addEventListener('click', e=>{
-		       
+		        const auth = firebase.auth();
 			 const nameUser = registeredName.value;   
 		    	 const user = registeredEmail.value;
 			 const pass = registeredpassword.value;
@@ -167,10 +167,10 @@ $("document").ready(function(){
 	
 	auth.onAuthStateChanged(function(userCurrent){
 		    	window.location = appPage;	
-			
-		        var userCurrent  = firebase.auth().currentUser;
-		        if(userCurrent){
-			
+			const auth = firebase.auth();
+		        var userCurrent  = auth.currentUser;
+		       
+		if(userCurrent){
 			var name  = userCurrent.displayName;
 			var uid   = userCurrent.uid;
 			var email = userCurrent.email ;
@@ -198,14 +198,10 @@ $("document").ready(function(){
 				
               //+++++++++++Adding tasks++++++++++++++++++++++++++++++++
 		$("#addTask").on("click", function(){
-		
-		
 			 var tdTask=document.getElementById("taskBox").value;
-			  
 			  if(tdTask==""){
 			  alert("Empty task doesn't make any sense, does it?? ");
 			  }
-			  
 			  else{
 			  var firebaseRefTasks = firebase.database().ref().child(name+uid+"/Tasks");
 			 firebaseRefTasks.push().set(tdTask);
