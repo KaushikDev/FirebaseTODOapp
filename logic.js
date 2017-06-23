@@ -153,8 +153,17 @@ $("document").ready(function(){
 	if(signout){
              signout.addEventListener('click', e=>{
 			if(confirm("Do you wish to leave?")){
-			firebase.auth().signOut();
-			window.location = loginPage;
+			//firebase.auth().signOut();
+			//window.location = loginPage;
+		//
+			promise = auth.signOut().then(function(){
+			 window.location = loginPage;
+					 });
+		      promise.catch(e => 
+	                console.log(e.message);
+		 }	
+		//		
+				
 			}
 		       			       			
 		 });
