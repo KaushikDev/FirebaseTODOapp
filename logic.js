@@ -69,6 +69,7 @@ $("document").ready(function(){
 			  // The signed-in user info.
 			  var user = result.user;
 			  // ...
+			window.location = "/FirebaseTODOapp/main.html";
 			}).catch(function(error) {
  			 // Handle Errors here.
  			 var errorCode = error.code;
