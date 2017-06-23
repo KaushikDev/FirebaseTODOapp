@@ -160,7 +160,7 @@ $("document").ready(function(){
 			 window.location = loginPage;
 					 });
 		      promise.catch(e => 
-	                console.log(e.message);
+	                console.log(e.message)
 		 }	
 		//		
 				
