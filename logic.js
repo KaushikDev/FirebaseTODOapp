@@ -167,14 +167,16 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
 	firebase.auth().onAuthStateChanged(function(user){
-		    	window.location = appPage;	
+		    	
+		        const auth = firebase.auth();
+		        var user  = auth.currentUser;
+		
 			if(user){
-			const auth = firebase.auth();
-		        var currentUSER  = auth.currentUser;
-			var name  = currentUSER.displayName;
-			var uid   = currentUSER.uid;
-			var email = currentUSER.email ;
-			var photoUrl = currentUSER.photoUrl ;
+			window.location = appPage;
+			var name  = user.displayName;
+			var uid   = user.uid;
+			var email = user.email ;
+			var photoUrl = user.photoUrl ;
 			
 			console.log("Current user is : "+uid);
 			console.log("Current user's name is : "+name);
