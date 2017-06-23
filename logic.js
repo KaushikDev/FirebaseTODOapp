@@ -43,7 +43,7 @@ $("document").ready(function(){
 			 const promise = auth.signInWithEmailAndPassword(user, pass).then(function(){
 			  //Make sure to remove below window.location if it doesn't work or should be a part of onAuthStateChanged function.
 				 //window.location = "/FirebaseTODOapp/main.html";
-				
+				window.location = "/FirebaseTODOapp/main.html";
 			 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
@@ -185,7 +185,7 @@ $("document").ready(function(){
 		    	//var currentUser  = firebase.auth().currentUser;
 			
 			if(currentUser){
-			window.location = "/FirebaseTODOapp/main.html";
+			
 			var userCurrent  = firebase.auth().currentUser;
 			var name  = userCurrent.displayName;
 			var uid   = userCurrent.uid;
