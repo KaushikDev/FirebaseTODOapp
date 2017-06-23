@@ -44,8 +44,7 @@ $("document").ready(function(){
 			 if(userMail!="" && passCode!=""){
 			document.getElementById("emailReq").innerHTML =  "";
 			document.getElementById("passReq").innerHTML =  ""; 
-		        const auth = firebase.auth();
-			promise = auth.signInWithEmailAndPassword(userMail, passCode).then(function(){
+		        promise = firebase.auth().signInWithEmailAndPassword(userMail, passCode).then(function(){
 			 
 					 });
 		      promise.catch(e => 
