@@ -66,9 +66,8 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		
 	if(signinG){
 		 google.addEventListener('click', e=>{
-			 var provider = new firebase.auth.GoogleAuthProvider();
-			 const auth = firebase.auth();
-			 auth.signInWithPopup(provider).then(function(result) {	 
+			
+			 firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
 			// This gives you a Google Access Token. You can use it to access the Google API.
   			var tokenGoogle = result.credential.accessToken;
 			  // The signed-in user info.
@@ -154,8 +153,8 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++				
 		if(signout){
              signout.addEventListener('click', e=>{
-		     const auth = firebase.auth();
-			 promise = auth.signOut().then(function(){
+		  
+			 promise = firebase.auth().signOut().then(function(){
 				if(confirm("Do you wish to leave?")){
 				 window.location = loginPage;
 			 }	
@@ -169,10 +168,10 @@ $("document").ready(function(){
 	firebase.auth().onAuthStateChanged(function(user){
 		    	
 		      //  const auth = firebase.auth();
-		      //  var user  = auth.currentUser;
-		window.location = appPage;
-			
+		       var user  = firebase.auth().currentUser;
+		    			
 		       if(user){
+			window.location = appPage;
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
