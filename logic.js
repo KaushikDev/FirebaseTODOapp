@@ -178,7 +178,7 @@ $("document").ready(function(){
 		 });
 		  }
 		  
-	firebase.auth().onAuthStateChanged(firebaseUser =>{
+	firebase.auth().onAuthStateChanged(user =>{
 			
 			window.location = "/FirebaseTODOapp/main.html";
 		       var user  = firebase.auth().currentUser;
