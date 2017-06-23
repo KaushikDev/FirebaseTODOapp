@@ -15,7 +15,7 @@ $("document").ready(function(){
 		 const email = document.getElementById("email");
 		 const password = document.getElementById("password");
 		 const signin = document.getElementById("signin");
-	     const signinG = document.getElementById("google");
+	   	 const signinG = document.getElementById("google");
 		 const signout = document.getElementById("signout");
 		 const signup = document.getElementById("signup");
 		 const getIndexDiv = document.getElementById("index");
@@ -26,33 +26,39 @@ $("document").ready(function(){
 		 const getRegisterDiv = document.getElementById("registerDIV");
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
+		 const auth = firebase.auth();
 		 var provider = new firebase.auth.GoogleAuthProvider();
-		
-	
+		 var currentUser;
+		 const promise;
+		 const loginPage = "/FirebaseTODOapp/index.html";
+		 const registerPage = "/FirebaseTODOapp/register.html"; 
+	         const appPage = "/FirebaseTODOapp/main.html";
+	 
 	if(signin){
 		 signin.addEventListener('click', e=>{
 		    
-		     const user = email.value;
-			 const pass = password.value;
+		     const userMail = email.value;
+			 const passCode = password.value;
 			 
 			 //validating user credentials
-			 if(user!="" && pass!=""){
+			 if(userMail!="" && passCode!=""){
 			document.getElementById("emailReq").innerHTML =  "";
 			document.getElementById("passReq").innerHTML =  ""; 
-			const auth = firebase.auth();
-			 const promise = auth.signInWithEmailAndPassword(user, pass).then(function(){
+			//const auth = firebase.auth();
+			 promise = auth.signInWithEmailAndPassword(userMail, passCode).then(function(){
 			  //Make sure to remove below window.location if it doesn't work or should be a part of onAuthStateChanged function.
 				 //window.location = "/FirebaseTODOapp/main.html";
-				window.location = "/FirebaseTODOapp/main.html";
+				window.location = appPage;
+				// currentUser  = firebase.auth().currentUser;
 			 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
 		 }
-			  else if(user==""){
+			  else if(userMail==""){
 				  
 				document.getElementById("emailReq").innerHTML =  "Please enter your email";  
 			  }
-		 else if(pass==""){
+		 else if(passCode==""){
 			 document.getElementById("emailReq").innerHTML =  "";
 			 document.getElementById("passReq").innerHTML =  "Please enter your password"; 
 		 }
@@ -63,13 +69,15 @@ $("document").ready(function(){
 	//trying the login with google inside this block
 	if(signinG){
 		 google.addEventListener('click', e=>{
-			 firebase.auth().signInWithPopup(provider).then(function(result) {
-				 window.location = "/main.html";
+			// firebase.auth().signInWithPopup(provider).then(function(result) {
+			 auth.signInWithPopup(provider).then(function(result) {	 
+				// currentUser  = firebase.auth().currentUser;
+				// window.location = "https://kaushikdev.github.io/main.html";
  			// window.location = "/FirebaseTODOapp/main.html";
 				 // This gives you a Google Access Token. You can use it to access the Google API.
-  			var token = result.credential.accessToken;
+  			var tokenGoogle = result.credential.accessToken;
 			  // The signed-in user info.
-			  var user = result.user;
+			  var userGoogle = result.user;
 			  // ...
 			
 			}).catch(function(error) {
@@ -90,10 +98,7 @@ $("document").ready(function(){
 	if(signup){
 		 
 		 signup.addEventListener('click', e=>{
-		 window.location = "/FirebaseTODOapp/register.html";
-		 //registeredEmail.value='';
-		 //registeredpassword.value='';
-		 //registeredName.value='';
+		 window.location = registerPage;
 		 });
 		 
 		 }
@@ -101,11 +106,8 @@ $("document").ready(function(){
 	if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
-		 window.location = "/FirebaseTODOapp/index.html";
-		 //registeredEmail.value='';
-		 //registeredpassword.value='';
-		 //registeredName.value='';
-		 });
+		 window.location = loginPage;
+		  });
 		 
 		 }
 		 
@@ -113,7 +115,7 @@ $("document").ready(function(){
 		 register.addEventListener('click', e=>{
 		       
 			 const nameUser = registeredName.value;   
-		     const user = registeredEmail.value;
+		    	 const user = registeredEmail.value;
 			 const pass = registeredpassword.value;
 			 
 			 
@@ -123,8 +125,8 @@ $("document").ready(function(){
 				 document.getElementById("regpassReq").innerHTML = "";
 				 
 				 
-			 const auth = firebase.auth();
-			 const promise = auth.createUserWithEmailAndPassword(user, pass).then(function(){
+			// const auth = firebase.auth();
+			 promise = auth.createUserWithEmailAndPassword(user, pass).then(function(){
 			 //window.location.reload(true);
 			 //updatig user name
 			 var user = firebase.auth().currentUser;
@@ -177,16 +179,15 @@ $("document").ready(function(){
              signout.addEventListener('click', e=>{
 			if(confirm("Do you wish to leave?")){
 			firebase.auth().signOut();
-				window.location = "/FirebaseTODOapp/index.html";
+			window.location = loginPage;
 			}
 		       			       			
 		 });
 		  }
 		  
-	firebase.auth().onAuthStateChanged(function(currentUser){
-		      //	
-		    	//var currentUser  = firebase.auth().currentUser;
-			
+	//firebase.auth().onAuthStateChanged(function(currentUser){
+	auth.onAuthStateChanged(function(currentUser){	      //	
+		    			
 			if(currentUser){
 			//window.location = "/FirebaseTODOapp/main.html";
 			var userCurrent  = firebase.auth().currentUser;
