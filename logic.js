@@ -164,9 +164,10 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
 	auth.onAuthStateChanged(function(currentUser){
-		    			
-			if(currentUser){
-			window.location = appPage;
+		    	window.location = appPage;	
+			
+		
+		        if(currentUser){
 			var userCurrent  = firebase.auth().currentUser;
 			var name  = userCurrent.displayName;
 			var uid   = userCurrent.uid;
