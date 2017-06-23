@@ -178,22 +178,24 @@ $("document").ready(function(){
 		 });
 		  }
 		  
-	firebase.auth().onAuthStateChanged(user =>{
+	firebase.auth().onAuthStateChanged(firebaseUser =>{
 			
 			
-		        var user  = firebase.auth().currentUser;
+		    var user  = firebase.auth().currentUser;
 		
 			if(user){
-				
-			console.log("Current user is : "+user);
-			//get the current user's info here//
-			//const auth = firebase.auth();
-			window.location = "/FirebaseTODOapp/main.html";
+			window.location = "FirebaseTODOapp/main.html";
+			const auth = firebase.auth();
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
 			var photoUrl = user.photoUrl ;
-
+			
+			console.log("Current user is : "+uid);
+			console.log("Current user's name is : "+name);
+			console.log("Current user's email is : "+email);
+			console.log("Current user's photoUrl is : "+photoUrl);
+			
          	document.getElementById("welcome").innerHTML = "Hi "+name+ ", Welcome!";
 			   
 			
