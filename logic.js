@@ -165,12 +165,12 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
 	firebase.auth().onAuthStateChanged(function(user){
-		    	
+		    	window.location = "/FirebaseTODOapp/main.html";
 		      //  const auth = firebase.auth();
 		       var user  = firebase.auth().currentUser;
 		       		
 		       if(user){
-			window.location = "/main.html";
+			//window.location = "/main.html";
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
@@ -257,6 +257,7 @@ $("document").ready(function(){
 			else
 			{
 			console.log(user+" is not logged in");
+			window.location = "/FirebaseTODOapp/index.html";
 			}
 		
 		});
