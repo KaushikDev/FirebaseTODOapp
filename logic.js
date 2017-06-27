@@ -155,7 +155,7 @@ $("document").ready(function(){
 		  
 			 promise = firebase.auth().signOut().then(function(){
 				if(confirm("Do you wish to leave?")){
-				 window.location = loginPage;
+				 window.location = "/FirebaseTODOapp/index.html";
 			 }	
 					 });
 		      promise.catch(e => 
@@ -165,10 +165,10 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
 	firebase.auth().onAuthStateChanged(function(user){
-		    	window.location = "/FirebaseTODOapp/main.html";
+		    	
 		      //  const auth = firebase.auth();
 		       var user  = firebase.auth().currentUser;
-		    			
+		       window.location = "/FirebaseTODOapp/main.html";		
 		       if(user){
 			//window.location = "/FirebaseTODOapp/main.html";
 			var name  = user.displayName;
