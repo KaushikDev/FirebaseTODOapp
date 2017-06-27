@@ -1,7 +1,7 @@
   // Initialize Firebase
   const config = {
     apiKey: "AIzaSyBZwn4c0KmEGXXFScg_c8aLTte1CRmTknY",
-    authDomain: "github.com",
+    authDomain: "kaushikdev.github.io",
     databaseURL: "https://todo-app-612b7.firebaseio.com",
     storageBucket: "todo-app-612b7.appspot.com",
     messagingSenderId: "439347897690"
@@ -102,7 +102,7 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
     if(register){
 		 register.addEventListener('click', e=>{
-		        const auth = firebase.auth();
+		       
 			 const nameUser = registeredName.value;   
 		    	 const user = registeredEmail.value;
 			 const pass = registeredpassword.value;
@@ -112,7 +112,7 @@ $("document").ready(function(){
 				 document.getElementById("regnameReq").innerHTML = "";
 				 document.getElementById("regemailReq").innerHTML = "";
 				 document.getElementById("regpassReq").innerHTML = "";
-			 promise = auth.createUserWithEmailAndPassword(user, pass).then(function(){
+			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
 			 var user = firebase.auth().currentUser;
 			 user.updateProfile({
 				displayName: registeredName.value,
@@ -170,7 +170,7 @@ $("document").ready(function(){
 		       var user  = firebase.auth().currentUser;
 		       		
 		       if(user){
-			window.location = "/KaushikDev/FirebaseTODOapp/main.html";
+			window.location = "/FirebaseTODOapp/main.html";
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
