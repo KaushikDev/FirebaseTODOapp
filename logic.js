@@ -257,7 +257,8 @@ $("document").ready(function(){
 			else
 			{
 			console.log(user+" is not logged in");
-			window.location = "/FirebaseTODOapp/index.html";
+			//window.location = "/FirebaseTODOapp/index.html";
+			firebase.auth().signOut();
 			}
 		
 		});
