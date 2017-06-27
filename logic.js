@@ -167,9 +167,9 @@ $("document").ready(function(){
 	firebase.auth().onAuthStateChanged(function(user){
 		     
 		     
-		   //    var user  = firebase.auth().currentUser;
+		      var user  = firebase.auth().currentUser;
 		       		
-		     //  if(user){
+		      if(user){
 			window.location = "/FirebaseTODOapp/main.html";
 			var name  = user.displayName;
 			var uid   = user.uid;
@@ -253,11 +253,11 @@ $("document").ready(function(){
 		 });
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 	 
 			//******SERIOUSLY
-		//	}
-		//	else
-		//	{
-		//	console.log(user+" is not logged in");
-		//	}
+			}
+			else
+			{
+			console.log(user+" is not logged in");
+			}
 		
 		});
 	
