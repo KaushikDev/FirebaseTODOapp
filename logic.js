@@ -165,7 +165,7 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++			  
 	
 	firebase.auth().onAuthStateChanged(function(user){
-		    	window.location = "/FirebaseTODOapp/main.html";
+		      window.location = "main.html";
 		      //  const auth = firebase.auth();
 		       var user  = firebase.auth().currentUser;
 		       		
@@ -257,8 +257,6 @@ $("document").ready(function(){
 			else
 			{
 			console.log(user+" is not logged in");
-			//window.location = "/FirebaseTODOapp/index.html";
-			firebase.auth().signOut();
 			}
 		
 		});
