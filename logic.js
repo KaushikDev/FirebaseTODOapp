@@ -168,9 +168,9 @@ $("document").ready(function(){
 		    	
 		      //  const auth = firebase.auth();
 		       var user  = firebase.auth().currentUser;
-		       window.location = "/FirebaseTODOapp/main.html";		
+		       		
 		       if(user){
-			//window.location = "/FirebaseTODOapp/main.html";
+			window.location = "/FirebaseTODOapp/main.html";
 			var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
