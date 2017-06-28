@@ -28,7 +28,7 @@ $("document").ready(function(){
 		 const getRegisterDiv = document.getElementById("registerDIV");
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
-		
+		 const upload = document.getElementById("upload");
 		 
 		 var currentUser;
 		 var promise;
@@ -116,7 +116,13 @@ $("document").ready(function(){
 		 window.location.href = "/FirebaseTODOapp/login.html";
 		  });
 	 }
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+	if(upload){
+	   upload.addEventListener('click', e=>{
+		//YOUR CODE HERE 
+		  });
+	   }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
     if(register){
 		 register.addEventListener('click', e=>{
 		       
