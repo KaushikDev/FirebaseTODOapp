@@ -19,6 +19,7 @@ $("document").ready(function(){
 	         const signinE = document.getElementById("emailAuth");
  		 const signout = document.getElementById("signout");
 		 const signup = document.getElementById("signup");
+	         const back = document.getElementById("back");
 		 const getIndexDiv = document.getElementById("index");
 		 const getMainDiv = document.getElementById("main");
 		 const registeredName = document.getElementById("nameReg");
@@ -103,7 +104,12 @@ $("document").ready(function(){
 		 });
 	}	
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
-	
+	 if(back){
+	 back.addEventListener('click', e=>{
+		 window.location.href = "/FirebaseTODOapp/index.html"; 
+		 });
+	}
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		
 	if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
