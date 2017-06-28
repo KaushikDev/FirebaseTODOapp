@@ -46,7 +46,7 @@ $("document").ready(function(){
 			document.getElementById("passReq").innerHTML =  ""; 
 		        promise = firebase.auth().signInWithEmailAndPassword(userMail, passCode).then(function(){
 			   // ...Below line to be rmeooved if not working expectedly.
-				 var user = firebase.auth().currentUser;
+				// var user = firebase.auth().currentUser;
 					 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
@@ -73,7 +73,7 @@ $("document").ready(function(){
 			  // The signed-in user info.
 			  var userGoogle = result.user;
 			  // ...Below line to be rmeooved if not working expectedly.
-				 var user = firebase.auth().currentUser;
+				// var user = firebase.auth().currentUser;
 			}).catch(function(error) {
  			 // Handle Errors here.
  			 var errorCode = error.code;
@@ -171,8 +171,9 @@ $("document").ready(function(){
 		 
 			   //var user  = firebase.auth().currentUser;
 		       		
-			   if(user){
+			if(user){
 			window.location.href = "/FirebaseTODOapp/main.html";
+				   
 	 		var name  = user.displayName;
 			var uid   = user.uid;
 			var email = user.email ;
