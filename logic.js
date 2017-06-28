@@ -173,9 +173,11 @@ $("document").ready(function(){
 		       		
 			if(user){
 			window.location.href = "/FirebaseTODOapp/main.html";
+				$("document").ready(function(){
+				
+				
 			var currentUser  = firebase.auth().currentUser;
-				console.log("The Current User after moving to main.html is : "+currentUser);
-	 		var name  = currentUser.displayName;
+			var name  = currentUser.displayName;
 			var uid   = currentUser.uid;
 			var email = currentUser.email ;
 			var photoUrl = currentUser.photoUrl ;
@@ -257,6 +259,7 @@ $("document").ready(function(){
 		 });
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 	 
 			//******SERIOUSLY
+					}); //This is ending of document.ready for main.html
 			}
 			else
 			{
