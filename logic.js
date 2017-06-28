@@ -67,7 +67,7 @@ $("document").ready(function(){
 		 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		
 	if(signinG){
-		 google.addEventListener('click', e=>{
+		 googleAuth.addEventListener('click', e=>{
 			
 			 firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
 			// This gives you a Google Access Token. You can use it to access the Google API.
@@ -98,7 +98,7 @@ $("document").ready(function(){
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
         if(signinE){
-	 signinE.addEventListener('click', e=>{
+	 emailAuth.addEventListener('click', e=>{
 		 window.location.href = "/FirebaseTODOapp/login.html"; 
 		 });
 	}	
