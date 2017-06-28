@@ -1,7 +1,7 @@
   // Initialize Firebase
   const config = {
     apiKey: "AIzaSyBZwn4c0KmEGXXFScg_c8aLTte1CRmTknY",
-    authDomain: "kaushikdev.github.io",
+    authDomain: "todo-app-612b7.firebaseapp.com",
     databaseURL: "https://todo-app-612b7.firebaseio.com",
     storageBucket: "todo-app-612b7.appspot.com",
     messagingSenderId: "439347897690"
