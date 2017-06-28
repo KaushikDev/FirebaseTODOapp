@@ -167,9 +167,9 @@ $("document").ready(function(){
 	firebase.auth().onAuthStateChanged(function(user){
 		     
 		 
-			   var user  = firebase.auth().currentUser;
+			   //var user  = firebase.auth().currentUser;
 		       		
-			   if(user){
+			   if(firebase.auth().currentUser){
 			window.location.href = "/FirebaseTODOapp/main.html";
 	 		var name  = user.displayName;
 			var uid   = user.uid;
