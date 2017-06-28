@@ -166,20 +166,20 @@ $("document").ready(function(){
 	
 	firebase.auth().onAuthStateChanged(function(user){
 		     
-		      //window.location = "/FirebaseTODOapp/main.html";
-		  //    var user  = firebase.auth().currentUser;
+		 
+			   var user  = firebase.auth().currentUser;
 		       		
-		    //  if(user){
+			   if(user){
 			window.location.href = "/FirebaseTODOapp/main.html";
-		//	var name  = user.displayName;
-		//	var uid   = user.uid;
-		//	var email = user.email ;
-		//	var photoUrl = user.photoUrl ;
+	 		var name  = user.displayName;
+			var uid   = user.uid;
+			var email = user.email ;
+			var photoUrl = user.photoUrl ;
 			
-		//	console.log("Current user is : "+uid);
-		//	console.log("Current user's name is : "+name);
-		//	console.log("Current user's email is : "+email);
-		//	console.log("Current user's photoUrl is : "+photoUrl);
+			console.log("Current user is : "+uid);
+			console.log("Current user's name is : "+name);
+			console.log("Current user's email is : "+email);
+			console.log("Current user's photoUrl is : "+photoUrl);
 			
          	document.getElementById("welcome").innerHTML = "Hi "+name+ ", Welcome!";
 			   
@@ -253,11 +253,11 @@ $("document").ready(function(){
 		 });
 	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 	 
 			//******SERIOUSLY
-		//	}
-		//	else
-		//	{
-		//	console.log(user+" is not logged in");
-		//	}
+			}
+			else
+			{
+			console.log(user+" is not logged in");
+			}
 		
 		});
 	
