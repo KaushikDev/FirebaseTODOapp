@@ -113,7 +113,7 @@ $("document").ready(function(){
 				 document.getElementById("regemailReq").innerHTML = "";
 				 document.getElementById("regpassReq").innerHTML = "";
 			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
-			 //var user = firebase.auth().currentUser;
+			 var user = firebase.auth().currentUser;
 			 user.updateProfile({
 				displayName: registeredName.value,
 				photoURL: "https://putyourlinkhere.com.jpeg"
