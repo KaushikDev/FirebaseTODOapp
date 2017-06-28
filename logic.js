@@ -15,8 +15,9 @@ $("document").ready(function(){
 		 const email = document.getElementById("email");
 		 const password = document.getElementById("password");
 		 const signin = document.getElementById("signin");
-	   	 const signinG = document.getElementById("google");
-		 const signout = document.getElementById("signout");
+	   	 const signinG = document.getElementById("googleAuth");
+	         const signinE = document.getElementById("emailAuth");
+ 		 const signout = document.getElementById("signout");
 		 const signup = document.getElementById("signup");
 		 const getIndexDiv = document.getElementById("index");
 		 const getMainDiv = document.getElementById("main");
@@ -30,7 +31,8 @@ $("document").ready(function(){
 		 
 		 var currentUser;
 		 var promise;
-		 const loginPage = "/FirebaseTODOapp/index.html";
+		 const indexPage = "/FirebaseTODOapp/index.html";
+	         const loginPage = "/FirebaseTODOapp/login.html";
 		 const registerPage = "/FirebaseTODOapp/register.html"; 
 	         const appPage = "/FirebaseTODOapp/main.html";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
@@ -95,10 +97,17 @@ $("document").ready(function(){
 		 });
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+        if(signinE){
+	 signinE.addEventListener('click', e=>{
+		 window.location.href = "/FirebaseTODOapp/login.html"; 
+		 });
+	}	
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+	
 	if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
-		 window.location.href = "/FirebaseTODOapp/index.html";
+		 window.location.href = "/FirebaseTODOapp/login.html";
 		  });
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
