@@ -46,7 +46,7 @@ $("document").ready(function(){
 			document.getElementById("passReq").innerHTML =  ""; 
 		        promise = firebase.auth().signInWithEmailAndPassword(userMail, passCode).then(function(){
 			   // ...Below line to be rmeooved if not working expectedly.
-				// var user = firebase.auth().currentUser;
+				var user = firebase.auth().currentUser;
 					 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
