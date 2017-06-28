@@ -66,7 +66,7 @@ $("document").ready(function(){
 	if(signinG){
 		 google.addEventListener('click', e=>{
 			
-			 firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
+			 firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
 			// This gives you a Google Access Token. You can use it to access the Google API.
   			var tokenGoogle = result.credential.accessToken;
 			  // The signed-in user info.
