@@ -89,14 +89,14 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		             
 	if(signup){
 		 signup.addEventListener('click', e=>{
-		 window.location = registerPage;
+		 window.location.href = "/FirebaseTODOapp/register.html"; 
 		 });
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(cancel){
 		 
 		 cancel.addEventListener('click', e=>{
-		 window.location = loginPage;
+		 window.location.href = "/FirebaseTODOapp/index.html";
 		  });
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++		 
@@ -113,7 +113,7 @@ $("document").ready(function(){
 				 document.getElementById("regemailReq").innerHTML = "";
 				 document.getElementById("regpassReq").innerHTML = "";
 			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
-			 var user = firebase.auth().currentUser;
+			 //var user = firebase.auth().currentUser;
 			 user.updateProfile({
 				displayName: registeredName.value,
 				photoURL: "https://putyourlinkhere.com.jpeg"
@@ -155,7 +155,7 @@ $("document").ready(function(){
 		  
 			 promise = firebase.auth().signOut().then(function(){
 				if(confirm("Do you wish to leave?")){
-				 window.location = "/FirebaseTODOapp/index.html";
+				 window.location.href = "/FirebaseTODOapp/index.html";
 			 }	
 					 });
 		      promise.catch(e => 
