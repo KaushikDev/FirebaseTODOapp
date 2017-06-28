@@ -45,7 +45,8 @@ $("document").ready(function(){
 			document.getElementById("emailReq").innerHTML =  "";
 			document.getElementById("passReq").innerHTML =  ""; 
 		        promise = firebase.auth().signInWithEmailAndPassword(userMail, passCode).then(function(){
-			 
+			   // ...Below line to be rmeooved if not working expectedly.
+				 var user = firebase.auth().currentUser;
 					 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
@@ -71,7 +72,8 @@ $("document").ready(function(){
   			var tokenGoogle = result.credential.accessToken;
 			  // The signed-in user info.
 			  var userGoogle = result.user;
-			  // ...
+			  // ...Below line to be rmeooved if not working expectedly.
+				 var user = firebase.auth().currentUser;
 			}).catch(function(error) {
  			 // Handle Errors here.
  			 var errorCode = error.code;
