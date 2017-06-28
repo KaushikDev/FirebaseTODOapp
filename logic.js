@@ -46,7 +46,7 @@ $("document").ready(function(){
 			document.getElementById("passReq").innerHTML =  ""; 
 		        promise = firebase.auth().signInWithEmailAndPassword(userMail, passCode).then(function(){
 			   // ...Below line to be rmeooved if not working expectedly.
-				var user = firebase.auth().currentUser;
+				//var user = firebase.auth().currentUser;
 					 });
 		      promise.catch(e => 
 	          document.getElementById("signinError").innerHTML = "Please recheck your credentials OR login using google OR signup for the application.")
@@ -173,11 +173,12 @@ $("document").ready(function(){
 		       		
 			if(user){
 			window.location.href = "/FirebaseTODOapp/main.html";
-				   
-	 		var name  = user.displayName;
-			var uid   = user.uid;
-			var email = user.email ;
-			var photoUrl = user.photoUrl ;
+			var currentUser  = firebase.auth().currentUser;
+				console.log("The Current User after moving to main.html is : "+currentUser);
+	 		var name  = currentUser.displayName;
+			var uid   = currentUser.uid;
+			var email = currentUser.email ;
+			var photoUrl = currentUser.photoUrl ;
 			
 			console.log("Current user is : "+uid);
 			console.log("Current user's name is : "+name);
