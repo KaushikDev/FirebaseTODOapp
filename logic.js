@@ -119,10 +119,11 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
 		var form = document.querySelector("form");
-	       upload.addEventListener('submit', e=>{
+	       form.addEventListener("submit", e=>{
 		//YOUR CODE HERE 
 		   e.preventDefault();
-		   var file_data = $("#uploadImg").prop("file")[0];
+		   var $=jQuery;
+		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.put(file_data);		     
 		  });
 	   }
