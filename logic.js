@@ -29,6 +29,7 @@ $("document").ready(function(){
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
 		 const upload = document.getElementById("upload");
+	         var uploadStatus = document.getElementById("uploadStatus");
 	         const storageRef = firebase.storage().ref();
 		 var currentUser;
 		 var promise;
@@ -135,7 +136,7 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     console.log('Upload is ' + progress + '% done');
-	document.getElementById("uploadStatus").innerHTML = "Upload is "+progress+" % done";
+	uploadStatus.innerHTML = "Upload is "+progress+" % done";
     switch (snapshot.state) {
       case firebase.storage.TaskState.PAUSED: // or 'paused'
         console.log('Upload is paused');
