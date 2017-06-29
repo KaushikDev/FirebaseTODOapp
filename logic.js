@@ -138,39 +138,31 @@ $("document").ready(function(){
 			 const nameUser = registeredName.value;   
 		    	 const user = registeredEmail.value;
 			 const pass = registeredpassword.value;
+	
+	if(nameUser!="" && user!="" && pass!="" && pass.length>=7){
+		 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
+		//get the url of the just uploaded image :
+		 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
+		 var xhr = new XMLHttpRequest();
+		 xhr.responseType = 'blob';
+		 xhr.onload = function(event) {
+ 		 var blob = xhr.response;
+ 		};
+		xhr.open('GET', url);
+		xhr.send();
+ 		console.log("The url of the image is : "+ url);
+		dpUrl = url;
+		// Or inserted into an <img> element:
+		// var img = document.getElementById('myimg');
+		//img.src = url;
+		}).catch(function(error) {
+  		// Handle any errors
+ 		console.log("Error while getting image url is : "+error.message);
+		});
+		//	 
 			 
-			 
-			 if(nameUser!="" && user!="" && pass!="" && pass.length>=7){
-			//	 document.getElementById("regnameReq").innerHTML = "";
-				// document.getElementById("regemailReq").innerHTML = "";
-			//	 document.getElementById("regpassReq").innerHTML = "";
-
-			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
-			
-				 //get the url of the just uploaded image :
-			 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
-			  var xhr = new XMLHttpRequest();
-			  xhr.responseType = 'blob';
-			  xhr.onload = function(event) {
- 			   var blob = xhr.response;
- 			};
-			  xhr.open('GET', url);
-			  xhr.send();
- 			 console.log("The url of the image is : "+ url);
-			  dpUrl = url;
-			 // Or inserted into an <img> element:
-			 // var img = document.getElementById('myimg');
-			 //img.src = url;
-			}).catch(function(error) {
-  			// Handle any errors
- 			 console.log("Error while getting image url is : "+error.message);
-			});
-			//
-				 
-				 
-			 var user = firebase.auth().currentUser;
-			
-			 user.updateProfile({
+		 var user = firebase.auth().currentUser;
+		 user.updateProfile({
 				displayName: registeredName.value,
 				photoURL: dpUrl
 				}).then(function() {
@@ -228,8 +220,6 @@ $("document").ready(function(){
 			if(user){
 			window.location.href = "/FirebaseTODOapp/main.html";
 			$("document").ready(function(){
-				
-				
 				
 			var currentUser  = firebase.auth().currentUser;
 			var name  = currentUser.displayName;
