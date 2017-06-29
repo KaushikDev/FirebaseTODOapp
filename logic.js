@@ -29,7 +29,7 @@ $("document").ready(function(){
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
 		 const upload = document.getElementById("upload");
-		 const storageRef = firebase.storage().ref();
+	         const storageRef = firebase.storage().ref();
 		 var currentUser;
 		 var promise;
 		 var dpUrl ;
@@ -120,16 +120,18 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
 	       var form = document.querySelector("form");
-	       form.addEventListener("submit", e=>{
+	   promise = form.addEventListener("submit", e=>{
+		 document.getElementById("uploadError").innerHTML = "";
 		//YOUR CODE HERE 
 		e.preventDefault();
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
-		 
-		       
-	       
-	       });
+	});
+		promise.catch(e => 
+	          console.log(e.message))
+		document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!";
+			});
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
     if(register){
@@ -140,6 +142,10 @@ $("document").ready(function(){
 			 const pass = registeredpassword.value;
 	
 	if(nameUser!="" && user!="" && pass!="" && pass.length>=7){
+		 document.getElementById("regnameReq").innerHTML = "";
+		 document.getElementById("regemailReq").innerHTML = "";
+		 document.getElementById("regpassReq").innerHTML = "";
+		
 		 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
 		//get the url of the just uploaded image :
 		 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
