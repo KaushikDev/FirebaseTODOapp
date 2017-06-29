@@ -163,7 +163,7 @@ $("document").ready(function(){
 			//
 			 user.updateProfile({
 				displayName: registeredName.value,
-				photoURL: "https://putyourlinkhere.com.jpeg"
+				photoURL: url
 				}).then(function() {
 				console.log("Update successful.");
 				}, function(error) {
