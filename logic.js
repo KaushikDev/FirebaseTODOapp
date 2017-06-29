@@ -242,8 +242,9 @@ $("document").ready(function(){
 			console.log("Current user's email is : "+email);
 			console.log("Current user's photoUrl is : "+photoUrl);
 			
-         	document.getElementById("welcome").innerHTML = "Hi "+name+ ", Welcome!";
-			   
+         		document.getElementById("welcome").innerHTML = "Hi "+name+ ", Welcome!";
+		   	var img = document.getElementById("dp");
+			img.src = photoUrl;
 			
 				var arrayDelete=[];
 				var i=1;
