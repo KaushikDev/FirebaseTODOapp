@@ -119,7 +119,8 @@ $("document").ready(function(){
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
-	       var form = document.querySelector("form");
+	       try{
+		var form = document.querySelector("form");
 	       form.addEventListener("submit", e=>{
 		 document.getElementById("uploadError").innerHTML = "";
 		//YOUR CODE HERE 
@@ -127,9 +128,12 @@ $("document").ready(function(){
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
-	}).catch(e => 
-	   document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!"
-		 );
+	});}
+	catch(err){
+	 document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!"
+	}
+	  
+		
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
     if(register){
