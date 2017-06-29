@@ -145,27 +145,29 @@ $("document").ready(function(){
 				// document.getElementById("regemailReq").innerHTML = "";
 			//	 document.getElementById("regpassReq").innerHTML = "";
 
-//get the url of the just uploaded image :
- storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
-  var xhr = new XMLHttpRequest();
-  xhr.responseType = 'blob';
-  xhr.onload = function(event) {
-    var blob = xhr.response;
-  };
-  xhr.open('GET', url);
-  xhr.send();
-  console.log("The url of the image is : "+ url);
-  dpUrl = url;
- // Or inserted into an <img> element:
- // var img = document.getElementById('myimg');
- //img.src = url;
-}).catch(function(error) {
-  // Handle any errors
-  console.log("Error while getting image url is : "+error.message);
-});
-//
-
 			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
+			
+				 //get the url of the just uploaded image :
+			 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
+			  var xhr = new XMLHttpRequest();
+			  xhr.responseType = 'blob';
+			  xhr.onload = function(event) {
+ 			   var blob = xhr.response;
+ 			};
+			  xhr.open('GET', url);
+			  xhr.send();
+ 			 console.log("The url of the image is : "+ url);
+			  dpUrl = url;
+			 // Or inserted into an <img> element:
+			 // var img = document.getElementById('myimg');
+			 //img.src = url;
+			}).catch(function(error) {
+  			// Handle any errors
+ 			 console.log("Error while getting image url is : "+error.message);
+			});
+			//
+				 
+				 
 			 var user = firebase.auth().currentUser;
 			
 			 user.updateProfile({
@@ -228,11 +230,12 @@ $("document").ready(function(){
 			$("document").ready(function(){
 				
 				
+				
 			var currentUser  = firebase.auth().currentUser;
 			var name  = currentUser.displayName;
 			var uid   = currentUser.uid;
 			var email = currentUser.email ;
-			var photoUrl = currentUser.photoUrl ;
+			var photoUrl = currentUser.photoURL ;
 			
 			console.log("Current user is : "+uid);
 			console.log("Current user's name is : "+name);
