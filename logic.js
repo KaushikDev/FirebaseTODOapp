@@ -124,7 +124,7 @@ $("document").ready(function(){
 		e.preventDefault();
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
-		   storageRef.child("Display Pictures"+"/"+registeredName.value).put(file_data);		     
+		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
 		  });
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
@@ -142,6 +142,25 @@ $("document").ready(function(){
 				 document.getElementById("regpassReq").innerHTML = "";
 			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
 			 var user = firebase.auth().currentUser;
+			//
+				 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
+
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = function(event) {
+    var blob = xhr.response;
+  };
+  xhr.open('GET', url);
+  xhr.send();
+  console.log("The url of the image is : "+ url);
+ // Or inserted into an <img> element:
+ // var img = document.getElementById('myimg');
+ //img.src = url;
+}).catch(function(error) {
+  // Handle any errors
+  console.log(error.message);
+});
+			//
 			 user.updateProfile({
 				displayName: registeredName.value,
 				photoURL: "https://putyourlinkhere.com.jpeg"
