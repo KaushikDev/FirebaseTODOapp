@@ -175,7 +175,7 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
 });	
 		       }
 		       else 
-		uploadError.innerHTML = "We encountered an error while uploading. Please retry!!";	       
+		uploadError.innerHTML = "Please select a Picture of yours.Thanks!!";	       
 	
 	       });
 		 //     promise.catch(e => 
