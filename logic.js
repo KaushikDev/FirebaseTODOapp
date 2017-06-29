@@ -130,7 +130,7 @@ $("document").ready(function(){
 	});
 		promise.catch(e => 
 	          console.log(e.message))
-		document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!";
+		document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!"
 			});
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
