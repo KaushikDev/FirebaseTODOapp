@@ -128,13 +128,14 @@ $("document").ready(function(){
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   // Upload file and metadata to the object 'Display Pictures'
-var uploadTask = storageRef.child("Display Pictures"+registeredEmail.value).put(file_data);
+var uploadTask = storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);
 		// Listen for state changes, errors, and completion of the upload.
 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   function(snapshot) {
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     console.log('Upload is ' + progress + '% done');
+	document.getElementById("uploadStatus").innerHTML = "Upload is "+progress+" % done";
     switch (snapshot.state) {
       case firebase.storage.TaskState.PAUSED: // or 'paused'
         console.log('Upload is paused');
@@ -167,6 +168,7 @@ document.getElementById("uploadError").innerHTML = "We encountered an error whil
   // Upload completed successfully, now we can get the download URL
   var downloadURL = uploadTask.snapshot.downloadURL;
 	console.log("Download URL is : "+ downloadURL);
+	dpUrl = downloadURL;
 });		
 	       });
 		 //     promise.catch(e => 
@@ -189,7 +191,9 @@ document.getElementById("uploadError").innerHTML = "We encountered an error whil
 		 document.getElementById("regpassReq").innerHTML = "";
 		
 		 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
-		//get the url of the just uploaded image :
+/*
+	//get the url of the just uploaded image :
+			 
 		 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
 		 var xhr = new XMLHttpRequest();
 		 xhr.responseType = 'blob';
@@ -208,7 +212,7 @@ document.getElementById("uploadError").innerHTML = "We encountered an error whil
  		console.log("Error while getting image url is : "+error.message);
 		});
 		//	 
-			 
+*/
 		 var user = firebase.auth().currentUser;
 		 user.updateProfile({
 				displayName: registeredName.value,
