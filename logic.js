@@ -120,18 +120,17 @@ $("document").ready(function(){
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
 	       var form = document.querySelector("form");
-	   promise = form.addEventListener("submit", e=>{
+	       form.addEventListener("submit", e=>{
 		 document.getElementById("uploadError").innerHTML = "";
 		//YOUR CODE HERE 
 		e.preventDefault();
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
-	});
-		promise.catch(e => 
-	          console.log(e.message))
+	}).catch(e => 
+	    console.log(e.message)
 		document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!"
-			});
+		 );
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
     if(register){
