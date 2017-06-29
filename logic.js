@@ -118,8 +118,8 @@ $("document").ready(function(){
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
-		//var form = document.querySelector("form");
-	       upload.addEventListener("submit", e=>{
+	       var form = document.querySelector("form");
+	       form.addEventListener("submit", e=>{
 		//YOUR CODE HERE 
 		   e.preventDefault();
 		 //  var $=jQuery;
