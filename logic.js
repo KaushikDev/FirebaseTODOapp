@@ -127,7 +127,8 @@ $("document").ready(function(){
 		e.preventDefault();
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
-		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);
+		   // Upload file and metadata to the object 'Display Pictures'
+var uploadTask = storageRef.child("Display Pictures"+registeredEmail.value).put(file_data);
 		// Listen for state changes, errors, and completion of the upload.
 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   function(snapshot) {
