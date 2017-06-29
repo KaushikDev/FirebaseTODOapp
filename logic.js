@@ -128,15 +128,10 @@ $("document").ready(function(){
 		//YOUR CODE HERE 
 		e.preventDefault();
 		 //  var $=jQuery;
-		       try{
-			 var file_data = $("#uploadImg").prop("files")[0];
-		       }
-		       catch(err){
-			 uploadError.innerHTML = "We encountered an error while uploading. Please retry!!";  
-		       }
-		   
-		   // Upload file and metadata to the object 'Display Pictures'
-var uploadTask = storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);
+		 var file_data = $("#uploadImg").prop("files")[0];
+		 // Upload file and metadata to the object 'Display Pictures'
+		       if(file_data!=null){
+		       var uploadTask = storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);
 		// Listen for state changes, errors, and completion of the upload.
 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   function(snapshot) {
@@ -177,7 +172,11 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
   var downloadURL = uploadTask.snapshot.downloadURL;
 	console.log("Download URL is : "+ downloadURL);
 	dpUrl = downloadURL;
-});		
+});	
+		       }
+		       else 
+		uploadError.innerHTML = "We encountered an error while uploading. Please retry!!";	       
+	
 	       });
 		 //     promise.catch(e => 
 	           //    uploadError.innerHTML = "We encountered an error while uploading. Please retry!!")
