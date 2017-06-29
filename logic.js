@@ -118,32 +118,23 @@ $("document").ready(function(){
 		  });
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
-	if(upload){
-	       
-		var form = document.querySelector("form");
+			 if(upload){
+	       var form = document.querySelector("form");
 	       form.addEventListener("submit", e=>{
-		 document.getElementById("uploadError").innerHTML = "";
+			promise = function(){
+			document.getElementById("uploadError").innerHTML = "";
 		//YOUR CODE HERE 
 		e.preventDefault();
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
-		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
-	}).catch(function(error) {
- 			 // Handle Errors here.
-		       document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!";
- 			 var errorCode = error.code;
-			 var errorMessage = error.message;
-			 // The email of the user's account used.
-			  var email = error.email;
- 			 // The firebase.auth.AuthCredential type that was used.
-  			var credential = error.credential;
-  			// ...
-			});
-	 
+		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);	
+					 };
+		      promise.catch(e => 
+	               document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!")
+//		   
+	});
 	
-	  
-		
-	   }
+	}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
     if(register){
 		 register.addEventListener('click', e=>{
