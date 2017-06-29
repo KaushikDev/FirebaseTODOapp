@@ -167,7 +167,7 @@ document.getElementById("uploadError").innerHTML = "We encountered an error whil
   var downloadURL = uploadTask.snapshot.downloadURL;
 	console.log("Download URL is : "+ downloadURL);
 });		
-				 )};
+	       });
 		 //     promise.catch(e => 
 	           //    document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!")
 //		   
