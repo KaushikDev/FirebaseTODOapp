@@ -124,7 +124,7 @@ $("document").ready(function(){
 		   e.preventDefault();
 		   var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
-		   storageRef.put(file_data);		     
+		   storageRef.child("Display Pictures").put(file_data);		     
 		  });
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
