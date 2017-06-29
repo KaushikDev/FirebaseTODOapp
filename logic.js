@@ -29,7 +29,7 @@ $("document").ready(function(){
 		 const register = document.getElementById("register");
 		 const cancel = document.getElementById("cancel");
 		 const upload = document.getElementById("upload");
-		 
+		 var storageRef = firebase.storage().ref();
 		 var currentUser;
 		 var promise;
 		 const indexPage = "/FirebaseTODOapp/index.html";
@@ -118,10 +118,11 @@ $("document").ready(function(){
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
-	   upload.addEventListener('submit', e=>{
+		var form = document.querySelector(“form”);
+	       form.addEventListener('submit', e=>{
 		//YOUR CODE HERE 
 		   event.preventDefault();
-		   var storageRef = firebase.storage().ref();
+		   
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.put(file_data);		     
 		  });
