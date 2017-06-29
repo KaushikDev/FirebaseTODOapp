@@ -121,7 +121,7 @@ $("document").ready(function(){
 			 if(upload){
 	       var form = document.querySelector("form");
 	       form.addEventListener("submit", e=>{
-			promise = function(){
+			//promise = function(){
 			document.getElementById("uploadError").innerHTML = "";
 		//YOUR CODE HERE 
 		e.preventDefault();
@@ -158,17 +158,20 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
     case 'storage/unknown':
       // Unknown error occurred, inspect error.serverResponse
       break;
+		  
+    default :
+document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!");
   }
 }, function() {
   // Upload completed successfully, now we can get the download URL
   var downloadURL = uploadTask.snapshot.downloadURL;
 	console.log("Download URL is : "+ downloadURL);
 });		
-					 };
-		      promise.catch(e => 
-	               document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!")
+		//			 };
+		 //     promise.catch(e => 
+	           //    document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!")
 //		   
-	});
+	//});
 	
 	}
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
