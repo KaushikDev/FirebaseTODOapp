@@ -160,7 +160,7 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
       break;
 		  
     default :
-document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!");
+document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!";
   }
 }, function() {
   // Upload completed successfully, now we can get the download URL
