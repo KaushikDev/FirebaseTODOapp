@@ -128,7 +128,13 @@ $("document").ready(function(){
 		//YOUR CODE HERE 
 		e.preventDefault();
 		 //  var $=jQuery;
-		   var file_data = $("#uploadImg").prop("files")[0];
+		       try{
+			 var file_data = $("#uploadImg").prop("files")[0];
+		       }
+		       catch(err){
+			 uploadError.innerHTML = "We encountered an error while uploading. Please retry!!";  
+		       }
+		   
 		   // Upload file and metadata to the object 'Display Pictures'
 var uploadTask = storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);
 		// Listen for state changes, errors, and completion of the upload.
@@ -163,8 +169,8 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
       // Unknown error occurred, inspect error.serverResponse
       break;
 		  
-    default :
-uploadError.innerHTML = "We encountered an error while uploading. Please retry!!";
+ //   default :
+    //uploadError.innerHTML = "We encountered an error while uploading. Please retry!!";
   }
 }, function() {
   // Upload completed successfully, now we can get the download URL
