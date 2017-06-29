@@ -118,8 +118,12 @@ $("document").ready(function(){
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
-	   upload.addEventListener('click', e=>{
+	   upload.addEventListener('submit', e=>{
 		//YOUR CODE HERE 
+		   event.preventDefault();
+		   var storageRef = firebase.storage().ref();
+		   var file_data = $("#uploadImg").prop("files")[0];
+		   storageRef.put(file_data);		     
 		  });
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
