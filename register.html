@@ -64,9 +64,11 @@ width:100%;
 <div id="registerDIV" class="container">
 <h3>Hello, let's create your account. High Five!!</h3>
 <label>Your Display Picture</label>
-<input accept=".img,.jpg,.jpeg,.png" type="file" id="uploadImg" name="image">	
+<form>	
+<input accept=".img,.jpg,.jpeg,.png" type="file" id="uploadImg" value="select" style="width:auto;border-radius:10px;height:auto;font-size:15px;">	
 <button class="btn btn-sm btn-secondary btn-action" id="upload" type="submit">Upload</button>
-<!--<button class="btn btn-sm btn-secondary btn-action" id="stopResume">Stop</button>-->
+</form>
+	<!--<button class="btn btn-sm btn-secondary btn-action" id="stopResume">Stop</button>-->
 <label>Your Awesome Name</label>
 <input type="text" id="nameReg" placeholder="Full Name..."  required>
 <p id="regnameReq"></p>
