@@ -119,7 +119,7 @@ $("document").ready(function(){
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
-	       try{
+	       
 		var form = document.querySelector("form");
 	       form.addEventListener("submit", e=>{
 		 document.getElementById("uploadError").innerHTML = "";
@@ -128,10 +128,19 @@ $("document").ready(function(){
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
-	});}
-	catch(err){
-	 document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!"
-	}
+	}).catch(function(error) {
+ 			 // Handle Errors here.
+		       document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!";
+ 			 var errorCode = error.code;
+			 var errorMessage = error.message;
+			 // The email of the user's account used.
+			  var email = error.email;
+ 			 // The firebase.auth.AuthCredential type that was used.
+  			var credential = error.credential;
+  			// ...
+			});
+	 
+	
 	  
 		
 	   }
