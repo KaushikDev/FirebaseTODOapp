@@ -128,8 +128,7 @@ $("document").ready(function(){
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
 	}).catch(e => 
-	    console.log(e.message)
-		document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!"
+	   document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!"
 		 );
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
