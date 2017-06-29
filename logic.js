@@ -121,7 +121,7 @@ $("document").ready(function(){
 		//var form = document.querySelector("form");
 	       upload.addEventListener("submit", e=>{
 		//YOUR CODE HERE 
-		 //  e.preventDefault();
+		   e.preventDefault();
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures").put(file_data);		     
