@@ -118,11 +118,11 @@ $("document").ready(function(){
 	 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	if(upload){
-		var form = document.querySelector("form");
-	       form.addEventListener("submit", e=>{
+		//var form = document.querySelector("form");
+	       upload.addEventListener("submit", e=>{
 		//YOUR CODE HERE 
-		   e.preventDefault();
-		   var $=jQuery;
+		 //  e.preventDefault();
+		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures").put(file_data);		     
 		  });
