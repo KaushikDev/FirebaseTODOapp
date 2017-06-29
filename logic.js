@@ -155,8 +155,6 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
       // User canceled the upload
       break;
 
-    ...
-
     case 'storage/unknown':
       // Unknown error occurred, inspect error.serverResponse
       break;
