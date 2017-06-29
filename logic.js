@@ -32,6 +32,7 @@ $("document").ready(function(){
 		 const storageRef = firebase.storage().ref();
 		 var currentUser;
 		 var promise;
+		 var dpUrl ;
 		 const indexPage = "/FirebaseTODOapp/index.html";
 	         const loginPage = "/FirebaseTODOapp/login.html";
 		 const registerPage = "/FirebaseTODOapp/register.html"; 
@@ -125,7 +126,31 @@ $("document").ready(function(){
 		 //  var $=jQuery;
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
-		  });
+		 
+	 //get the url of the just uploaded image :
+		       //
+				 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
+
+  var xhr = new XMLHttpRequest();
+  xhr.responseType = 'blob';
+  xhr.onload = function(event) {
+    var blob = xhr.response;
+  };
+  xhr.open('GET', url);
+  xhr.send();
+  console.log("The url of the image is : "+ url);
+  dpUrl = url;
+ // Or inserted into an <img> element:
+ // var img = document.getElementById('myimg');
+ //img.src = url;
+}).catch(function(error) {
+  // Handle any errors
+  console.log(error.message);
+});
+			//
+	       
+	       
+	       });
 	   }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
     if(register){
@@ -142,28 +167,10 @@ $("document").ready(function(){
 				 document.getElementById("regpassReq").innerHTML = "";
 			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
 			 var user = firebase.auth().currentUser;
-			//
-				 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
-
-  var xhr = new XMLHttpRequest();
-  xhr.responseType = 'blob';
-  xhr.onload = function(event) {
-    var blob = xhr.response;
-  };
-  xhr.open('GET', url);
-  xhr.send();
-  console.log("The url of the image is : "+ url);
- // Or inserted into an <img> element:
- // var img = document.getElementById('myimg');
- //img.src = url;
-}).catch(function(error) {
-  // Handle any errors
-  console.log(error.message);
-});
-			//
+			
 			 user.updateProfile({
 				displayName: registeredName.value,
-				photoURL: url
+				photoURL: dpUrl
 				}).then(function() {
 				console.log("Update successful.");
 				}, function(error) {
