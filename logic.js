@@ -127,10 +127,26 @@ $("document").ready(function(){
 		   var file_data = $("#uploadImg").prop("files")[0];
 		   storageRef.child("Display Pictures"+"/"+registeredEmail.value).put(file_data);		     
 		 
-	 //get the url of the just uploaded image :
-		       //
-				 storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
+		       
+	       
+	       });
+	   }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+    if(register){
+		 register.addEventListener('click', e=>{
+		       
+			 const nameUser = registeredName.value;   
+		    	 const user = registeredEmail.value;
+			 const pass = registeredpassword.value;
+			 
+			 
+			 if(nameUser!="" && user!="" && pass!="" && pass.length>=7){
+			//	 document.getElementById("regnameReq").innerHTML = "";
+				// document.getElementById("regemailReq").innerHTML = "";
+			//	 document.getElementById("regpassReq").innerHTML = "";
 
+//get the url of the just uploaded image :
+ storageRef.child("Display Pictures"+"/"+registeredEmail.value+"/").getDownloadURL().then(function(url) {
   var xhr = new XMLHttpRequest();
   xhr.responseType = 'blob';
   xhr.onload = function(event) {
@@ -145,26 +161,10 @@ $("document").ready(function(){
  //img.src = url;
 }).catch(function(error) {
   // Handle any errors
-  console.log(error.message);
+  console.log("Error while getting image url is : "+error.message);
 });
-			//
-	       
-	       
-	       });
-	   }
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
-    if(register){
-		 register.addEventListener('click', e=>{
-		       
-			 const nameUser = registeredName.value;   
-		    	 const user = registeredEmail.value;
-			 const pass = registeredpassword.value;
-			 
-			 
-			 if(nameUser!="" && user!="" && pass!="" && pass.length>=7){
-				 document.getElementById("regnameReq").innerHTML = "";
-				 document.getElementById("regemailReq").innerHTML = "";
-				 document.getElementById("regpassReq").innerHTML = "";
+//
+
 			 promise = firebase.auth().createUserWithEmailAndPassword(user, pass).then(function(){
 			 var user = firebase.auth().currentUser;
 			
@@ -225,7 +225,7 @@ $("document").ready(function(){
 		       		
 			if(user){
 			window.location.href = "/FirebaseTODOapp/main.html";
-				$("document").ready(function(){
+			$("document").ready(function(){
 				
 				
 			var currentUser  = firebase.auth().currentUser;
