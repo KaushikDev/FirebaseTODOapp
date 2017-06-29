@@ -30,6 +30,7 @@ $("document").ready(function(){
 		 const cancel = document.getElementById("cancel");
 		 const upload = document.getElementById("upload");
 	         var uploadStatus = document.getElementById("uploadStatus");
+	         var uploadError = document.getElementById("uploadError");
 	         const storageRef = firebase.storage().ref();
 		 var currentUser;
 		 var promise;
@@ -163,7 +164,7 @@ uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, // or 'state_changed'
       break;
 		  
     default :
-document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!";
+uploadError.innerHTML = "We encountered an error while uploading. Please retry!!";
   }
 }, function() {
   // Upload completed successfully, now we can get the download URL
@@ -173,7 +174,7 @@ document.getElementById("uploadError").innerHTML = "We encountered an error whil
 });		
 	       });
 		 //     promise.catch(e => 
-	           //    document.getElementById("uploadError").innerHTML = "We encountered an error while uploading. Please retry!!")
+	           //    uploadError.innerHTML = "We encountered an error while uploading. Please retry!!")
 //		   
 	//});
 	
