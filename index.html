@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+</head>
+<body>
+
+<style>
+body{
+background-color:black;
+}
+
+.hidden{
+display:none;
+}
+	
+#index h1{
+margin-top:10px;
+font-style:solid;
+color:white;
+margin-bottom:20px;
+font-family:Lobster;
+}
+	
+#index button{
+margin-top:20px;
+width:auto;
+}
+	
+</style>
+<!-- This section is for Sign In Form -->
+
+<div id="index" class="container text-center">
+<h1 style="color:white;">To-Do Notes</h1>
+
+<div>
+<canvas id="canvas" width="300" height="300"></canvas>
+</div>
+
+<button class="btn btn-lg btn-secondary btn-action" id="googleAuth">Use Google Authentication</button>
+<button class="btn btn-lg btn-secondary btn-action" id="emailAuth">Use Email Authentication</button>	
+	
+	<div class="row text-center" style="margin-top:50px;">
+                <div class="col-xs-12">
+		<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/FirebaseTODOapp" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
+                <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="whatsapp://send?text=https://KaushikDev.github.io/FirebaseTODOapp"><i class="fa fa-whatsapp" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
+        	<a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/FirebaseTODOapp" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
+                </div>
+        </div>
+ <div class="row text-center" style="margin-top:10px;">
+<div class="col-xs-12">
+
+<p style="color:white;font-style:normal"><i class="fa fa-copyright" aria-hidden="true"></i>KaushikCodeArts : App by Piyush Kaushik</p>
+
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+
+var sun = new Image();
+var moon = new Image();
+var earth = new Image();
+
+function init() {
+  sun.src = 'https://mdn.mozillademos.org/files/1456/Canvas_sun.png';
+  moon.src = 'https://mdn.mozillademos.org/files/1443/Canvas_moon.png';
+  earth.src = 'https://mdn.mozillademos.org/files/1429/Canvas_earth.png';
+  window.requestAnimationFrame(draw);
+}
+
+function draw() {
+  var ctx = document.getElementById('canvas').getContext('2d');
+
+  ctx.globalCompositeOperation = 'destination-over';
+  ctx.clearRect(0, 0, 300, 300); // clear canvas
+
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
+  ctx.strokeStyle = 'rgba(0, 153, 255, 0.4)';
+  ctx.save();
+  ctx.translate(150, 150);
+
+  // Earth
+  var time = new Date();
+  ctx.rotate(((2 * Math.PI) / 60) * time.getSeconds() + ((2 * Math.PI) / 60000) * time.getMilliseconds());
+  ctx.translate(105, 0);
+  ctx.fillRect(0, -12, 50, 24); // Shadow
+  ctx.drawImage(earth, -12, -12);
+
+  // Moon
+  ctx.save();
+  ctx.rotate(((2 * Math.PI) / 6) * time.getSeconds() + ((2 * Math.PI) / 6000) * time.getMilliseconds());
+  ctx.translate(0, 28.5);
+  ctx.drawImage(moon, -3.5, -3.5);
+  ctx.restore();
+
+  ctx.restore();
+  
+  ctx.beginPath();
+  ctx.arc(150, 150, 105, 0, Math.PI * 2, false); // Earth orbit
+  ctx.stroke();
+ 
+  ctx.drawImage(sun, 0, 0, 300, 300);
+
+  window.requestAnimationFrame(draw);
+}
+
+init();
+
+ </script>
+
+<script src="logic.js"></script>
+</body>
+</html>
